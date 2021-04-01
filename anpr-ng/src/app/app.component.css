@@ -1,0 +1,49 @@
+.drawer-container {
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+  
+.drawer-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.drawer-sidenav {
+    padding: 0px;
+    min-width: 25%;
+    max-width: 75%;
+}
+
+span {
+    padding-left: 25px;
+}
+
+.card-header-image {
+    background-image: url('https://fonts.gstatic.com/s/i/materialicons/account_box/v6/24px.svg?download=true');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-perfil {
+    background-image: url('https://thispersondoesnotexist.com/');
+    background-size: cover;
+    background-position: center;
+}
+
+mat-toolbar {
+    z-index: 3;
+}
+
+mat-drawer-container {
+    z-index: 1;
+}
+::ng-deep .xng-breadcrumb-trail {
+    color: white !important;
+}
+
+.breadcrumb {
+    margin-left: 15px;
+}
+

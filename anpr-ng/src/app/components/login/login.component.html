@@ -1,0 +1,29 @@
+<div fxFlex fxLayoutAlign="center center">
+    <mat-card>
+        <mat-card-title>
+            <h1>Please, log in</h1>
+            <mat-divider></mat-divider>
+            <br>
+        </mat-card-title>
+        <mat-card-content fxLayout="column" fxLayoutAlign="space-between stretch" [formGroup]="loginForm">
+            <mat-form-field appearance="fill">
+                <mat-label>User</mat-label>
+                <input #user matInput formControlName="user">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input #password matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+            <span fxFlex></span>
+            <button mat-raised-button color="primary" (click)="login()" fxLayoutGap="5px">
+                <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;Login
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

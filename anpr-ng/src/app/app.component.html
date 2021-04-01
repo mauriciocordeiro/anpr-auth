@@ -1,0 +1,46 @@
+<div [ngClass]="{'dark-theme': isDarkTheme | async}">
+    <div class="mat-app-background">
+        <app-loader *ngIf="isLoading | async"></app-loader>
+        <mat-toolbar color="primary" class="light-theme">
+            <mat-toolbar-row>
+                <button mat-icon-button matTooltip="Menu" (click)="toggleSidenav()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <xng-breadcrumb class="breadcrumb" [separator]="iconTemplate"></xng-breadcrumb>
+                <ng-template #iconTemplate>
+                    <mat-icon>arrow_right</mat-icon>
+                </ng-template>
+                <span fxFlex> </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-drawer-container class="drawer-container" autosize>
+            <mat-drawer #drawer class="drawer-sidenav" mode="over">
+                <mat-nav-list>
+                    <a mat-list-item routerLink="home" (click)="toggleSidenav()">
+                        <mat-icon color="accent">home</mat-icon>
+                        <span>Home</span>
+                    </a>
+                </mat-nav-list>                
+                <mat-divider></mat-divider>
+                <mat-nav-list>
+                    <a mat-list-item (click)="toggleSidenav(); toggleDarkTheme(!isDark)">
+                        <mat-icon *ngIf="isDark" color="accent">brightness_5</mat-icon>
+                        <span *ngIf="isDark">Light theme</span>
+
+                        <mat-icon *ngIf="!isDark" color="accent">bedtime</mat-icon>
+                        <span *ngIf="!isDark">Dark theme</span>
+                    </a>
+                </mat-nav-list>
+                <mat-nav-list *ngIf="isLoggedIn">
+                    <a mat-list-item (click)="toggleSidenav(); logout()">
+                        <mat-icon color="accent">power_settings_new</mat-icon>
+                        <span>Logout</span>
+                    </a>
+                </mat-nav-list>
+            </mat-drawer>
+            <div class="drawer-sidenav-content">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-drawer-container>
+    </div>
+</div>
