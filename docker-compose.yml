@@ -19,9 +19,9 @@ services:
       - net
     ports:
       - 8080:8080
-  np-database:
-    container_name: np-database
-    build: ./np-database
+  vehiclespy:
+    container_name: vehiclespy
+    build: ./vehiclespy
     environment:
       MONGODB_DATABASE: vehicles
       MONGODB_USERNAME: mongo
