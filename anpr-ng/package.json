@@ -1,5 +1,5 @@
 {
-  "name": "webhook-chatbot-client",
+  "name": "anpr-ng",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

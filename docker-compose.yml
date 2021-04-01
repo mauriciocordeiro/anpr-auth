@@ -31,6 +31,13 @@ services:
       - net
     ports:
       - 5001:5001
+  anpr-ng:
+    container_name: anpr-ng
+    build: ./anpr-ng
+    networks:
+      - net
+    ports:
+      - 4000:4000
 networks:
   net:
 volumes: 
