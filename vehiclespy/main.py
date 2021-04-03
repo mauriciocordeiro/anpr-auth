@@ -7,6 +7,7 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from datetime import datetime
+import re
 
 
 app = Flask(__name__)
@@ -64,6 +65,7 @@ def add_vehicle():
 def vehicles():
 	vehicles = db.vehicle.find().sort("plate", 1)
 	resp = dumps(vehicles)
+	resp = remove_oid(resp)
 
 	return resp
 
@@ -72,6 +74,7 @@ def vehicles():
 def vehicle(id):
 	vehicle = db.vehicle.find_one({'_id': ObjectId(id)})
 	resp = dumps(vehicle)
+	resp = remove_oid(resp)
 
 	return resp
 
@@ -168,6 +171,16 @@ def nternal_server_error(error=None):
 	resp.status_code = 500
 
 	return resp
+
+
+def remove_oid(string):
+    while True:
+        pattern = re.compile('{\s*"\$oid":\s*(\"[a-z0-9]{1,}\")\s*}')
+        match = re.search(pattern, string)
+        if match:
+            string = string.replace(match.group(0), match.group(1))
+        else:
+            return string
 
 
 if __name__ == "__main__":

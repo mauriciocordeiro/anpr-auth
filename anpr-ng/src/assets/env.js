@@ -1,5 +1,6 @@
 (function (window) {
     window["env"] = window["env"] || {};
 
-    window["env"]["api"] = "http://localhost:8080/v1";
+    window["env"]["apiAuth"] = "http://authpy:5002";
+    window["env"]["apiVehicles"] = "http://localhost:5001/vehicles";
 })(this);

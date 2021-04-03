@@ -1,0 +1,11 @@
+.main {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 64px);
+}
+
+#add-button {
+    bottom: 15px; 
+    right: 15px;
+    position: fixed;
+}

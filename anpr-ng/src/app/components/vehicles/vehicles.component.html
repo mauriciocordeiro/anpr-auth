@@ -1,0 +1,17 @@
+<div class="main">
+    <mat-nav-list>
+        <mat-list-item *ngFor="let vehicle of vehicles" [routerLink]="['/vehicles/', vehicle._id]">
+            <mat-icon mat-list-icon size="50" 
+                [color]="vehicle.allowed ? 'primary' : 'warn'">
+                time_to_leave
+            </mat-icon>
+            <h3 matLine><strong>{{ vehicle.plate }}</strong></h3>
+            <div mat-line>{{ vehicle.owner }}</div>
+            <div mat-line><i>{{ vehicle.phone }}</i></div>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-nav-list>
+    <button id="add-button" mat-fab color="primary" [routerLink]="['/vehicles/new']">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

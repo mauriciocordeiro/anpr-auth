@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent, data: { breadcrumb: { skip: true } } },
   { path: 'home', loadChildren: () => import('./components/home/home.module').then(module => module.HomeModule), data: { breadcrumb: 'Home' } },
+  { path: 'vehicles', loadChildren: () => import('./components/vehicles/vehicles.module').then(module => module.VehiclesModule), data: { breadcrumb: 'Vehicles' } },
+  
   { path: '**', redirectTo: '404' },
   { path: '404', component: NotFoundComponent }
 ];

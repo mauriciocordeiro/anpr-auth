@@ -8,7 +8,7 @@ import { Credencial } from '../model/credencial';
 import { Autorizacao } from '../model/autorizacao';
 
 const jwtHelper = new JwtHelperService();
-const API = environment.api;
+const API = environment.apiVehicles;
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   public isTokenValid(): boolean {
-    return this.getToken()!==null && !jwtHelper.isTokenExpired(this.getToken());
+    return true;// this.getToken()!==null && !jwtHelper.isTokenExpired(this.getToken());
   }
 
   public getToken(): string {
