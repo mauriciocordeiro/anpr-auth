@@ -11,7 +11,7 @@ import { LoaderService } from './core/services/loader.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ChatBot';
+  title = 'ANPR';
   isDarkTheme: Observable<boolean>;
   isDark = false;
 

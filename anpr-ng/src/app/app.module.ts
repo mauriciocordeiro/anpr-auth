@@ -42,7 +42,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
 
-    NgxMaskModule.forRoot(),
+    NgxMaskModule.forRoot(options),
     BreadcrumbModule,
     
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

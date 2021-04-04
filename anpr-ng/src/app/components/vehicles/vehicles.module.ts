@@ -7,6 +7,7 @@ import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.componen
 import { MaterialModule } from 'src/app/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     FlexLayoutModule,
     FlexModule,
+
+    NgxMaskModule,
   ]
 })
 export class VehiclesModule { }

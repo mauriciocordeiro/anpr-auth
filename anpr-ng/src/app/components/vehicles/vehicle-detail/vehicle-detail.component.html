@@ -5,8 +5,9 @@
                 <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-between center">
                     <mat-form-field fxFlex appearance="fill">
                         <mat-label>Plate</mat-label>
-                        <input matInput type="text" maxlength="7" formControlName="plate" required
-                            mask="SSS0A00" oninput="this.value = this.value.toUpperCase()">
+                        <input matInput type="text" formControlName="plate" required
+                            mask="SSS0A00" [validation]="true" [showMaskTyped]="true" placeHolderCharacter="#"
+                            oninput="this.value = this.value.toUpperCase()">
                     </mat-form-field>
 
                     <mat-slide-toggle formControlName="allowed" color="primary">Allowed</mat-slide-toggle>
@@ -30,7 +31,8 @@
 
                     <mat-form-field fxFlex appearance="fill">
                         <mat-label>Phone</mat-label>
-                        <input matInput type="text" mask="(00) 0000-0000" formControlName="phone" required>
+                        <input matInput type="text" mask="(00) 0000-0000||(00) 00000-0000" [showMaskTyped]="true" placeHolderCharacter="#"
+                            formControlName="phone" required>
                     </mat-form-field>
 
                     <mat-form-field fxFlex appearance="fill">

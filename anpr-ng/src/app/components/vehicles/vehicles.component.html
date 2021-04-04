@@ -6,7 +6,7 @@
             </mat-icon>
             <h3 matLine><strong>{{ vehicle.plate }}</strong></h3>
             <div mat-line>{{ vehicle.owner }}</div>
-            <div mat-line><i>{{ vehicle.phone }}</i></div>
+            <div mat-line><i>{{ vehicle.phone | mask: '(00) 0000-0000||(00) 00000-0000' }}</i></div>
             <mat-divider></mat-divider>
         </mat-list-item>
     </mat-nav-list>
