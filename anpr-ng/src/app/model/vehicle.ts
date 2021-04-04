@@ -4,6 +4,7 @@ export class Vehicle {
     brand:string;
     model:string;
     owner:string;
+    address:string;
     phone:string;
     allowed:boolean
 }

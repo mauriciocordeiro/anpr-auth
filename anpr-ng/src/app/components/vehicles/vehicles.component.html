@@ -1,8 +1,7 @@
 <div class="main">
     <mat-nav-list>
         <mat-list-item *ngFor="let vehicle of vehicles" [routerLink]="['/vehicles/', vehicle._id]">
-            <mat-icon mat-list-icon size="50" 
-                [color]="vehicle.allowed ? 'primary' : 'warn'">
+            <mat-icon mat-list-icon size="50" [color]="vehicle.allowed ? 'primary' : 'warn'">
                 time_to_leave
             </mat-icon>
             <h3 matLine><strong>{{ vehicle.plate }}</strong></h3>

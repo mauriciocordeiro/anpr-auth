@@ -1,1 +1,52 @@
-<p>vehicle-detail works!</p>
+<div class="main" fxLayoutAlign="center start">
+    <mat-card fxFlex.xs="100" fxFlex="75">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <mat-card-content fxLayout="column">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Plate</mat-label>
+                        <input matInput type="text" maxlength="7" formControlName="plate" required
+                            mask="SSS0A00" oninput="this.value = this.value.toUpperCase()">
+                    </mat-form-field>
+
+                    <mat-slide-toggle formControlName="allowed" color="primary">Allowed</mat-slide-toggle>
+
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Brand</mat-label>
+                        <input matInput type="text" maxlength="255" formControlName="brand" oninput="this.value = this.value.toUpperCase()">
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Model</mat-label>
+                        <input matInput type="text" maxlength="255" formControlName="model" oninput="this.value = this.value.toUpperCase()">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Owner</mat-label>
+                        <input matInput type="text" maxlength="255" formControlName="owner" oninput="this.value = this.value.toUpperCase()">
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Phone</mat-label>
+                        <input matInput type="text" mask="(00) 0000-0000" formControlName="phone" required>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Address</mat-label>
+                        <input matInput type="text" maxlength="255" formControlName="address" oninput="this.value = this.value.toUpperCase()">
+                    </mat-form-field>
+
+                </div>                
+            </mat-card-content>
+            <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+                <button mat-button color="primary" type="button" [routerLink]="['/vehicles']">Back</button>
+                <button mat-raised-button color="primary" type="submit">
+                    <mat-icon>save</mat-icon>
+                    <span style="padding-left: 10px;">Save</span>
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

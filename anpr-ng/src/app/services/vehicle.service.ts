@@ -23,4 +23,19 @@ export class VehicleService {
     return this.http.get<Vehicle>(`${API}/${id}`);
   }
 
+  public save(vehicle: Vehicle): Observable<Vehicle> {
+    if(vehicle._id)
+      return this.update(vehicle);
+    else
+      return this.insert(vehicle);
+  }
+
+  private insert(vehicle: Vehicle): Observable<Vehicle> {
+    return this.http.post<Vehicle>(`${API}`, vehicle);
+  }
+  
+  private update(vehicle: Vehicle): Observable<Vehicle> {
+    return this.http.put<Vehicle>(`${API}/${vehicle._id}`, vehicle);
+  }
+
 }

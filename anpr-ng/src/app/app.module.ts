@@ -21,6 +21,9 @@ import { LoaderService } from './core/services/loader.service';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { TokenValidatorInterceptor } from './interceptors/token-validator.interceptor';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
 
+    NgxMaskModule.forRoot(),
     BreadcrumbModule,
     
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

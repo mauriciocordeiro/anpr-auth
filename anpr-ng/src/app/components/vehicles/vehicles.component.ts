@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/core/services/snackbar.service';
 import { Vehicle } from 'src/app/model/vehicle';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
@@ -14,7 +15,8 @@ export class VehiclesComponent implements OnInit {
 
   constructor(
     private vehicleService:VehicleService,
-    private router:Router
+    private router:Router,
+    private snackBar: SnackBarService
   ) { }
 
   ngOnInit(): void {
@@ -31,8 +33,9 @@ export class VehiclesComponent implements OnInit {
       list => {
         this.vehicles = list;
       },
-      error => {
-
+      err => {
+        let error = err.error;
+        this.snackBar.error(error.message, error.status);
       }
     );
   }
