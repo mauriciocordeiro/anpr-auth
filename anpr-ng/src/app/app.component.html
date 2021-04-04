@@ -22,6 +22,12 @@
                     </a>
                 </mat-nav-list>    
                 <mat-nav-list>
+                    <a mat-list-item routerLink="authorization" (click)="toggleSidenav()">
+                        <mat-icon color="accent">lock_open</mat-icon>
+                        <span>Authorization</span>
+                    </a>
+                </mat-nav-list>  
+                <mat-nav-list>
                     <a mat-list-item routerLink="vehicles" (click)="toggleSidenav()">
                         <mat-icon color="accent">time_to_leave</mat-icon>
                         <span>Vehicles</span>
