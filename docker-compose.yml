@@ -31,6 +31,13 @@ services:
       - net
     ports:
       - 5001:5001
+  checkts:
+    container_name: checkts
+    build: ./checkts
+    networks:
+      - net
+    ports:
+      - 3000:3000
   anpr-ng:
     container_name: anpr-ng
     build: ./anpr-ng
