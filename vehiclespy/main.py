@@ -63,7 +63,14 @@ def add_vehicle():
 
 @app.route('/vehicles', methods=['GET'])
 def vehicles():
-	vehicles = db.vehicle.find().sort("plate", 1)
+	plate = request.args.get('plate', default=None)
+	query = {}
+
+	if(plate!=None):
+		query = { "plate": plate }		
+
+	vehicles = db.vehicle.find(query).sort("plate", 1)	
+
 	resp = dumps(vehicles)
 	resp = remove_oid(resp)
 
