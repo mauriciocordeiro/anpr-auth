@@ -1,1 +1,10 @@
-<p>authorization works!</p>
+<div class="main" fxLayoutAlign="center start">
+    <mat-card fxFlex.xs="100" fxFlex="75">
+        <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+            <input type="file" (change)="onChange($event)">
+            <button mat-mini-fab color="primary"  (click)="onUpload()">
+                <mat-icon>upload</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+</div>
