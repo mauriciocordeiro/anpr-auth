@@ -15,8 +15,11 @@ export class VehicleService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  public getAll(): Observable<Array<Vehicle>> {
-    return this.http.get<Array<Vehicle>>(`${API}`);
+  public getAll(plate?:string): Observable<Array<Vehicle>> {
+    if(plate)
+      return this.http.get<Array<Vehicle>>(`${API}?plate=${plate}`);
+    else
+      return this.http.get<Array<Vehicle>>(`${API}`);
   }
 
   public get(id:string): Observable<Vehicle> {

@@ -1,4 +1,14 @@
 <div class="main">
+    <div class="search-box" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Plate</mat-label>
+            <input #plate matInput mask="SSS0A00" oninput="this.value = this.value.toUpperCase()"
+                (keyup.enter)="search(plate.value)">
+            <button matSuffix mat-icon-button color="primary" (click)="search(plate.value)">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>        
+    </div>
     <mat-nav-list>
         <mat-list-item *ngFor="let vehicle of vehicles" [routerLink]="['/vehicles/', vehicle._id]">
             <mat-icon mat-list-icon size="50" [color]="vehicle.allowed ? 'primary' : 'warn'">

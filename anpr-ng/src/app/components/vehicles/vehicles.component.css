@@ -9,3 +9,8 @@
     right: 15px;
     position: fixed;
 }
+
+.search-box {
+    padding: 15px;
+    width: 100vw;
+}

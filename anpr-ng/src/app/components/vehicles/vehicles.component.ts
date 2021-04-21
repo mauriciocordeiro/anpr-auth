@@ -20,7 +20,7 @@ export class VehiclesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAll();
+    this.search();
   }
 
   open(id) {
@@ -28,8 +28,8 @@ export class VehiclesComponent implements OnInit {
     this.router.navigate(['/', id]);
   }
 
-  getAll() {
-    this.vehicleService.getAll().subscribe(
+  search(plate?:string) {
+    this.vehicleService.getAll(plate).subscribe(
       list => {
         this.vehicles = list;
       },
