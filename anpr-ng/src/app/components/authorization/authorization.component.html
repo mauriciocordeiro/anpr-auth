@@ -1,10 +1,15 @@
 <div class="main" fxLayoutAlign="center start">
-    <mat-card fxFlex.xs="100" fxFlex="75">
+    <mat-card fxFlex.xs="100" fxFlex="75" fxLayoutGap="10px">
         <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
-            <input type="file" (change)="onChange($event)">
+            <input type="file" (change)="onChange($event)" capture="environment" accept="image/*">
             <button mat-mini-fab color="primary"  (click)="onUpload()">
                 <mat-icon>upload</mat-icon>
             </button>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+            <img class="img" [src]="image" alt="" fxFlex>
+            <mat-icon *ngIf="vehicle && !vehicle.allowed" class="icon" color="warn" matTooltip="Not Allowed">block</mat-icon>
+            <mat-icon *ngIf="vehicle && vehicle.allowed" class="icon" color="primary" matTooltip="Allowed">check_circle_outline</mat-icon>
         </div>
     </mat-card>
 </div>

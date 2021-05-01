@@ -3,3 +3,13 @@
     width: 100vw;
     height: calc(100vh - 64px);
 }
+
+.img {
+    padding-top: 10px;
+    max-width: 600px;
+}
+
+.icon {
+    padding: 10px;
+    font-size: 48px;
+}
