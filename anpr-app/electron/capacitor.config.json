@@ -1,0 +1,13 @@
+{
+  "appId": "br.com.mac.anpr.app",
+  "appName": "anpr-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

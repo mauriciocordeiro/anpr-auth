@@ -1,0 +1,7 @@
+{
+  "name": "anpr-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
