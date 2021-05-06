@@ -7,7 +7,7 @@ Vehicle authentication based on ANPR
 
 ### Docker
 
-Para executar os sistemas via Docker, é necessário ter o docker e docker-compose instalado (Linux) ou o Docker com WSL2 (Windows 10).
+Para executar os sistemas via Docker, é necessário ter o _docker_ e _docker-compose_ instalados (Linux) ou o Docker com WSL2 (Windows 10).
 
 **Construir os contêiners:**
 
