@@ -20,8 +20,8 @@ services:
     ports:
       - 8080:8080
   vehiclespy:
+    image: mauriciocordeiro/vehiclespy:v1
     container_name: vehiclespy
-    build: ./vehiclespy
     environment:
       MONGODB_DATABASE: vehicles
       MONGODB_USERNAME: mongo
@@ -32,15 +32,15 @@ services:
     ports:
       - 5001:5001
   check4j:
+    image: mauriciocordeiro/check4j:v1
     container_name: check4j
-    build: ./check4j
     networks:
       - net
     ports:
       - 8081:8081
   anpr-ng:
+    image: mauriciocordeiro/anpr-ng:v1
     container_name: anpr-ng
-    build: ./anpr-ng
     networks:
       - net
     ports:
