@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      ANPR Camera
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-explore-container name="Tab 1 page"></app-explore-container>
+</ion-content> -->
+
+<ion-content class="ion-padding">
+  <ion-button size="small" (click)="getPicture('camera')">
+    <ion-icon name="camera" slot="start"></ion-icon>
+    <ion-label>Camera</ion-label>
+  </ion-button>
+  <ion-button size="small" (click)="getPicture('gallery')">
+    <ion-icon name="image" slot="start"></ion-icon>
+    <ion-label>Gallery</ion-label>
+  </ion-button>
+  <input type="file" *ngIf="isDesktop" #filePicker (change)="onFileChoose($event)"/>
+
+  <ion-card *ngIf="photo">
+    <ion-card-content>
+      <img [src]="photo">
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
