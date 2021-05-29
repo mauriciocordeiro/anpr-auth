@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  api: window["env"]["api"],
+  apiVehicles: window["env"]["apiVehicles"],
+  apiAuth: window["env"]["apiAuth"],
+  apiCheck: window["env"]["apiCheck"],
 };
