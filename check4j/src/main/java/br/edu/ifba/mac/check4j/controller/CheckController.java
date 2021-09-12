@@ -25,12 +25,12 @@ public class CheckController {
 	
 	@CrossOrigin
 	@PostMapping("/check")
-	public ResponseEntity<Vehicle> recognize(@RequestParam("image") MultipartFile image) throws IOException, InterruptedException, UnirestException {
+	public ResponseEntity<Vehicle> recognize(@RequestParam("image") MultipartFile image) 
+		throws IOException, InterruptedException, UnirestException {
 		
 		byte[] bytes = image.getBytes();
 		String filename = System.currentTimeMillis()+image.getOriginalFilename();
 		
 		return ResponseEntity.ok(checkService.check(bytes, filename));
 	}
-
 }
