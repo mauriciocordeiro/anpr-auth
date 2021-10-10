@@ -1,0 +1,11 @@
+<h1>CatEye ALPR v1.0</h1>
+<h2>Usage:</h2>
+<ol>
+    <li>Send a POST http request to "/alpr" with a image file (input "file", enctype "multipart/form-data") to detect a plate</li>
+    <li>Use the link "<a href="/upload">/upload</a>" to select a file to send and detect</li>
+    <li>Use ours ImageZQM service (port 5556) to send images do detect (Take a look at the file "client.py to see an example")</li>
+</ol>
+
+<h2>Response:</h2>
+<p>A JSON string like:</p>
+<p>{"type": "string", "number": "string:\w(3)\d[\w\d]\d(2)", "confidence": float, "time": float, "roi": array:[x, y, width, height]}</p>

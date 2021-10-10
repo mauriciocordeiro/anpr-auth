@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class VrpdrResult extends Result {
-	Logger logger = LoggerFactory.getLogger(VrpdrResult.class);
+	private static final Logger logger = LoggerFactory.getLogger(VrpdrResult.class);
 
     public VrpdrResult(String src) {
 		super();

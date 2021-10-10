@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Docker: CatEye ALPR",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "port": 5000,
+                "projectType": "general"
+            }
+        }
+    ]
+}

@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AlprResult extends Result {	
-	Logger logger = LoggerFactory.getLogger(AlprResult.class);
+	private static final Logger logger = LoggerFactory.getLogger(AlprResult.class);
 	
 	public AlprResult(String src) {
 		super();

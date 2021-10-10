@@ -46,6 +46,7 @@ export class AuthorizationComponent implements OnInit {
       err => {
         this.vehicle = null;
         console.log(err);
+        this.snackBar.error('Error while processing image', err.status)
       }
     );
   }
