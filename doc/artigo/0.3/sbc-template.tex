@@ -4,6 +4,8 @@
 \usepackage{cite}
 \usepackage{graphicx,url}
 \usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel} 
+
      
 \sloppy
 
@@ -34,13 +36,29 @@
 \subsection{Trabalhos correlatos}
 
 
-\section{Arquitetura}
+\section{Arquitetura} \label{sec:architecture}
 
-\cite{viggiato2018microservices}
+A solução desenvolvida neste trabalho é baseia-se na arquitetura de microsserviços, com módulos conteinerizados, que se comunicam via HTTP, além da aplicação de tecnologias baseadas em ANPR. Esta seção se dedica a detalhar esses conceitos.
 
+\subsection{Arquitetura de Microsserviços}
 
+Arquitetura de Microsserviços (\textit{Microservices Architecture} - MSA) é um modelo arquitetural onde processos de \textit{software} são realizados por componentes fracamente acoplados, que possuem funcionalidades específicas e bem definidas, e que se comunicam através de interfaces padronizadas \cite{viggiato2018}.
 
-\subsection{Microsserviços}
+A MSA pode ser considerada como a segunda iteração da Arquitetura Orientada a Serviços (\textit{Service Oriented Architecture} - SOA), onde serviços complexos são decompostos em partes mais flexíveis, especializadas e de fácil manutenção, de modo que cada uma é responsável por uma única e pequena funcionalidade com o intuito de realizá-la bem \cite{homay2019}. 
+
+\subsection{Virtualização baseada em contêiner}
+
+A Virtualização baseada em contêiner consiste \cite{eder2016} na utilização de recursos de \textit{hardware} e do \textit{kernel} de um sistema hospedeiro para a criação de ambientes isolados para a execução de determinados processos, o chamado \textbf{contêiner}, esquematizado na Figura~\ref{fig:conteiner}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{conteiner.jpg}
+	\caption{Virtualização baseada em contêiner}
+	\label{fig:conteiner}
+\end{figure} 
+
+Nessa abordagem, o contêiner aloca apenas os recursos necessário para executar sua aplicação, enquanto trabalha isolado de outros contêineres que possam estar em execução em um mesmo hospedeiro. Essa característica corrobora com sua utilidade quanto a aplicação em soluções baseadas de MSA, uma vez que os contêineres são capazes de se comunicar entre si.
+
 
 \subsection{REST}
 
@@ -48,14 +66,11 @@
 
 \section{"O trabalho"}
 
-
 \section{Resultados}
-
 
 \section{Conclusão}
 
-% \textit{trabalhos futuros}
-
+\textit{trabalhos futuros}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}

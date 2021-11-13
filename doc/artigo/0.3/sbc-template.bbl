@@ -1,7 +1,21 @@
 \begin{thebibliography}{}
 
-\bibitem[Viggiato et~al. 2018]{viggiato2018microservices}
+\bibitem[Eder 2016]{eder2016}
+Eder, M. (2016).
+\newblock Hypervisor-vs. container-based virtualization.
+\newblock {\em Future Internet (FI) and Innovative Internet Technologies and
+  Mobile Communications (IITM)}, 1.
+
+\bibitem[Homay et~al. 2019]{homay2019}
+Homay, A., Zoitl, A., Sousa, M.~d., and Wollschlaeger, M. (2019).
+\newblock A survey: Microservices architecture in advanced manufacturing
+  systems.
+\newblock In {\em 2019 IEEE 17th International Conference on Industrial
+  Informatics (INDIN)}, volume~1, pages 1165--1168. IEEE.
+
+\bibitem[Viggiato et~al. 2018]{viggiato2018}
 Viggiato, M., Terra, R., Rocha, H., Valente, M.~T., and Figueiredo, E. (2018).
 \newblock Microservices in practice: A survey study.
+\newblock {\em arXiv preprint arXiv:1808.04836}.
 
 \end{thebibliography}
