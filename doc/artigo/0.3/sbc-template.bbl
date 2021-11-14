@@ -1,5 +1,10 @@
 \begin{thebibliography}{}
 
+\bibitem[Adamczyk et~al. 2011]{adamczyk2011}
+Adamczyk, P., Smith, P.~H., Johnson, R.~E., and Hafiz, M. (2011).
+\newblock Rest and web services: In theory and in practice.
+\newblock In {\em REST: from research to practice}, pages 35--57. Springer.
+
 \bibitem[Eder 2016]{eder2016}
 Eder, M. (2016).
 \newblock Hypervisor-vs. container-based virtualization.
