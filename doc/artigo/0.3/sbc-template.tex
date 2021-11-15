@@ -83,11 +83,19 @@ De forma geral, o REST estabelece semântica para métodos e URI (\textit{Univer
 
 \subsection{ANPR}
 
-O ANPR (\textit{Automatic Number Plate Recognition}), possui um papel central na solução desenvolvida neste trabalho, é uma tecnologia que utiliza de visão computacional e processamento de imagem para identificar e reconhecer caracteres em placas de veículos.
+O ANPR (\textit{Automatic Number Plate Recognition}), que possui papel central na solução desenvolvida neste trabalho, é uma tecnologia que utiliza de visão computacional e processamento de imagem para identificar e reconhecer caracteres em placas de veículos.
 
-% https://d1wqtxts1xzle7.cloudfront.net/53578074/IRJET-V4I4829-with-cover-page-v2.pdf?Expires=1636914371&Signature=cH2b1QwSm9czG~o6NzEFOs9LZa22VwoyNjRiWUTbLSbNBr5aJITRxw3UPrYEUK~hGDkisBsmYr4HWDSOcgC9KW82BHkZWqWP1OCsVv-ut5ao1zDQZZADQl3ifCr0662PCPaWplYaZMroxNhaHtWhc4TIlAR73U6csqne4HzivHj7oJMkM6p6fRfsK0hzd8tu7bRzyrk1zTaxd2T3jFVejJk7bxD04JrBjKzn-Y15Zl4UrCrntUsuNHhtYDBEhRCGdcIdrd8SqXwiuZ4qtRRT1EsOGo5qQDhgYH~suy7IzWMl3Ap8JiZ8HfyxDoJ0sokMjhLqp5pS2lf~5jJ8BXdGjA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+Existem diferentes técnicas e algoritmos que podem seu usados no ANPR, mas, de forma geral, todos eles seguem um processo com etapas bem definidas \cite{mufti2021}: (i) Extração da placa, (ii) Segmentação de caracteres e (iii) Reconhecimento de caracteres.
 
-% https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9310202
+Dentro das etapas para a execução do ANPR, \cite{shashirangana2020} pode-se classificar as diferentes técnicas (que vão desde algoritmos de processamento de imagens até aplicação de redes neurais para classificação de objetos) conforme o mostrado na Figura~\ref{fig:anpr-steps}:
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{anpr-steps.jpg}
+	\caption{Etapas e técnicas aplicadas no ANPR}
+	\label{fig:anpr-steps}
+\end{figure} 
+
 
 \section{"O trabalho"}
 
