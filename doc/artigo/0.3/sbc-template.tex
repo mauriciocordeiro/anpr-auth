@@ -99,7 +99,7 @@ Dentro das etapas para a execução do ANPR, \cite{shashirangana2020} pode-se cl
 
 \section{O sistema para controle de acesso de veículos baseado em ANPR}
 
-O sistema para controle de acesso de veículos implementado neste trabalho foi organizado em módulos, ou contêineres, que se comunicam direta ou indiretamente entre si, como mostrado na Figura~\ref{fig:anpr-auth}. Esses módulos foram implementados com ferramentas tais como: Docker, Java, Python, Angular e MongoDB.
+O sistema para controle de acesso de veículos implementado neste trabalho foi organizado em módulos, ou contêineres, cada um com uma funcionalidade específica (seguindo os princípios da MSA), que se comunicam direta ou indiretamente entre si, como mostrado na Figura~\ref{fig:anpr-auth}. Esses módulos foram implementados com ferramentas tais como: Docker, Java, Python, Angular e MongoDB.
 
 \begin{figure}[ht]
 	\centering
@@ -110,13 +110,18 @@ O sistema para controle de acesso de veículos implementado neste trabalho foi o
 
 A seguir, será apresentada com detalhes a forma com que cada um dos módulos foi desenvolvida e como eles se interagem.
 
-\subsection{\textit{Web App}}
+\subsection{Composição de contêineres}
 
+Todos os módulos do sistema são construídos com contêineres Docker, a partir de alguma imagem\footnote{Uma "imagem docker" pode ser entendida como uma base ou um \textit{template} sobre o qual o contêiner será inicializado.} padrão ou de uma imagem personalizada. 
 
 \subsection{ANPR}
 
+O módulo ANPR é o responsável por realizar o processamento das imagens dos veículo e devolver o texto de sua placa. Para
+
 
 \subsection{Banco de Dados (BD)}
+
+Este é o módulo responsável pela persistência dos dados usados pelo sistema, construído com uma imagem do MongoDB\footnote{Página oficial do MongoDB: \url{https://www.mongodb.com/}. Página para a imagem Docker do MongoDB: \url{https://hub.docker.com/_/mongo}}
 
 
 \subsection{Registro de veículos}
@@ -125,7 +130,12 @@ A seguir, será apresentada com detalhes a forma com que cada um dos módulos fo
 \subsection{Controle de acesso}
 
 
-\subsection{Composição de contêineres}
+\subsection{\textit{Web App}}
+
+O módulo \textit{Web App} 
+
+
+
 
 
 
