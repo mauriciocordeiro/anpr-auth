@@ -97,29 +97,37 @@ Dentro das etapas para a execução do ANPR, \cite{shashirangana2020} pode-se cl
 \end{figure} 
 
 
-\section{"O trabalho"}
+\section{O sistema para controle de acesso de veículos baseado em ANPR}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper, risus sed sagittis vulputate, turpis erat pharetra erat, nec aliquet turpis elit quis nisl. Ut arcu ligula, auctor at libero nec, facilisis blandit odio. Donec a libero quis tortor volutpat laoreet id ac diam. Morbi et ex volutpat, tincidunt libero eget, cursus odio. Vivamus nec massa nec eros facilisis consectetur elementum at magna. Vestibulum tempus venenatis faucibus. Quisque at dolor a lacus sagittis commodo eu vel erat. Aliquam aliquet sollicitudin nisi, et fermentum magna blandit sit amet. Fusce quis eros sit amet lacus dictum euismod non non neque. Aenean sed faucibus arcu, eu vulputate libero. Sed in urna nisi. Praesent vel hendrerit lectus, sit amet hendrerit nibh.
+O sistema para controle de acesso de veículos implementado neste trabalho foi organizado em módulos, ou contêineres, que se comunicam direta ou indiretamente entre si, como mostrado na Figura~\ref{fig:anpr-auth}. Esses módulos foram implementados com ferramentas tais como: Docker, Java, Python, Angular e MongoDB.
 
-Maecenas feugiat metus at risus fringilla, eu condimentum lorem convallis. Etiam sed turpis vitae mi porta euismod. Proin enim est, iaculis non ultricies non, vulputate a risus. Nulla iaculis neque ut ex vehicula convallis. Vestibulum ornare, dolor et laoreet luctus, ipsum ante dictum erat, ac tempor elit orci nec justo. Sed efficitur aliquam neque eget euismod. Donec massa ipsum, sagittis in sem eu, accumsan vestibulum dolor. Integer ornare porta purus in dapibus. Vestibulum euismod ultricies sapien eu cursus. 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{anpr-auth.jpg}
+	\caption{Esquema da organização e relacionamento entre os contêineres do sistema}
+	\label{fig:anpr-auth}
+\end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Integer sed libero pellentesque, egestas sem non, auctor dui.
-Nam pellentesque nulla sed ullamcorper mollis.
-Integer sit amet ligula a neque posuere rhoncus.
-Fusce auctor justo in ultricies auctor.
+A seguir, será apresentada com detalhes a forma com que cada um dos módulos foi desenvolvida e como eles se interagem.
 
-\begin{itemize}
-	\item Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	\item Integer sed libero pellentesque, egestas sem non, auctor dui.
-	\item Nam pellentesque nulla sed ullamcorper mollis.
-	\item Integer sit amet ligula a neque posuere rhoncus.
-	\item Fusce auctor justo in ultricies auctor.
-\end{itemize}
+\subsection{\textit{Web App}}
 
-Morbi sed facilisis enim, elementum consequat magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi vel tellus non ipsum bibendum elementum quis sit amet augue. Etiam tortor nisi, iaculis nec vestibulum laoreet, maximus quis mi. Nunc vitae nisl nibh. Morbi posuere leo ac volutpat luctus. Maecenas semper quam a ipsum condimentum ultrices. Sed cursus urna ut ligula consectetur lacinia. Maecenas tincidunt diam non erat pulvinar consectetur. Sed nec condimentum ex.
 
-Donec ultricies et eros eget finibus. Sed aliquet, nisl sed ullamcorper ultrices, ligula lectus malesuada nibh, non accumsan elit lorem quis arcu. In consectetur eros a sem accumsan, sit amet venenatis leo maximus. Donec in orci imperdiet, molestie dolor nec, ultricies ante. Mauris gravida eleifend mauris, in pretium magna. In porttitor consequat sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce ut metus pellentesque, pretium orci sit amet, egestas sem. Sed consectetur, erat et consectetur vehicula, lacus odio tristique risus, euismod egestas erat dui tempor risus. Nulla facilisi. 
+\subsection{ANPR}
+
+
+\subsection{Banco de Dados (BD)}
+
+
+\subsection{Registro de veículos}
+
+
+\subsection{Controle de acesso}
+
+
+\subsection{Composição de contêineres}
+
+
 
 \section{Resultados} 
 
