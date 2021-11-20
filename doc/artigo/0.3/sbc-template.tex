@@ -71,7 +71,7 @@ Nessa abordagem, o contêiner aloca apenas os recursos necessário para executar
 
 O REST (\textit{REpresentational State Transfer}) é uma implementação da SOA sobre o HTTP para transferência de representações de um determinado recurso entre cliente e servidor \cite{mumbaikar2013}.
 
-De forma geral, o REST estabelece semântica para métodos e URI (\textit{Universal Resource Identifier}) no HTTP, padronizando a forma como recursos são solicitados e disponibilizados na web (Figura~\ref{fig:rest}). Nesse contexto, leia-se "recurso" como um item acessível via URI e a "semântica do método" padroniza o modo de interação com o recurso, como, por exemplo, {\scriptsize POST} para criar, {\scriptsize GET} para solicitar, {\scriptsize PUT} para editar e {\scriptsize DELETE} para remover \cite{adamczyk2011}.
+De forma geral, o REST estabelece semântica para métodos e URI (\textit{Universal Resource Identifier}) no HTTP, padronizando a forma como recursos são solicitados e disponibilizados na web (Figura~\ref{fig:rest}). Nesse contexto, leia-se "recurso" como um item acessível via URI e a "semântica do método" padroniza o modo de interação com o recurso, como, por exemplo, \texttt{POST} para criar, \texttt{GET} para solicitar, \texttt{PUT} para editar e \texttt{DELETE} para remover \cite{adamczyk2011}.
 
 \begin{figure}[ht]
 	\centering
@@ -79,7 +79,6 @@ De forma geral, o REST estabelece semântica para métodos e URI (\textit{Univer
 	\caption{Comunicação cliente-servidor com REST}
 	\label{fig:rest}
 \end{figure} 
-
 
 \subsection{ANPR}
 
@@ -97,7 +96,7 @@ Dentro das etapas para a execução do ANPR, \cite{shashirangana2020} pode-se cl
 \end{figure} 
 
 
-\section{O sistema para controle de acesso de veículos baseado em ANPR}
+\section{Sistema para controle de acesso de veículos baseado em ANPR}
 
 O sistema para controle de acesso de veículos implementado neste trabalho foi organizado em módulos, ou contêineres, cada um com uma funcionalidade específica (seguindo os princípios da MSA), que se comunicam direta ou indiretamente entre si, como mostrado na Figura~\ref{fig:anpr-auth}. Esses módulos foram implementados com ferramentas tais como: Docker, Java, Python, Angular e MongoDB.
 
@@ -112,17 +111,38 @@ A seguir, será apresentada com detalhes a forma com que cada um dos módulos fo
 
 \subsection{Composição de contêineres}
 
-Todos os módulos do sistema são construídos com contêineres Docker, a partir de alguma imagem\footnote{Uma "imagem docker" pode ser entendida como uma base ou um \textit{template} sobre o qual o contêiner será inicializado.} padrão ou de uma imagem personalizada. 
+Todos os módulos do sistema são construídos com contêineres Docker, constituindo assim uma aplicação multi-contêiner, a partir de alguma imagem\footnote{Uma "imagem docker" pode ser entendida como uma base ou um \textit{template} sobre o qual o contêiner será inicializado.} padrão ou de uma imagem personalizada.
+
+Para definir e executar a aplicação com múltiplos contêineres, é utilizada a ferramenta Docker Compose\footnote{Página para a documentação oficial do Docker Compose: \url{https://docs.docker.com/compose/}}. Essa ferramenta tem o objetivo de otimizar o processo de construção e execução de múltiplos contêineres, tanto das etapas de desenvolvimento e testes quanto na implantação para produção.
+
+O uso da ferramenta consiste em 3 passos:
+
+\begin{enumerate}
+	\item Definir, no arquivo \textit{Dockerfile}, os recursos necessários de cada um dos contêineres da aplicação, como a imagem docker, dependências, usuários e diretórios, portas de serviços e comandos para execução de aplicações, etc. De forma geral, o \textit{Dockerfile} é um \textit{script} que define \textbf{quais} e \textbf{como} instalar e utilizar as ferramentas e aplicações de um contêiner;
+	\item Definir, em um arquivo \textit{.yml}, os serviços necessários e a relação entre os contêineres, como interface de rede, portas de serviços, volumes de disco e dependências entre contêineres;
+	\item Executar o comando \texttt{docker-compose up} para inicializar todos os contêineres descritos no arquivo \textit{.yml}
+\end{enumerate}
+
+Vale ressaltar que, apesar do controle ser realizado em um único arquivo, em um cenário de atualização, o Docker Compose apenas reconstruirá o contêiner que possuir alguma modificação.
 
 \subsection{ANPR}
 
-O módulo ANPR é o responsável por realizar o processamento das imagens dos veículo e devolver o texto de sua placa. Para
+O módulo ANPR é o responsável por realizar o processamento das imagens dos veículo e devolver o texto de sua placa. Para tal, foi utilizado a biblioteca de código-aberto OpenALPR\footnote{Endereço do repositório e documentação da biblioteca: \url{https://github.com/openalpr/openalpr}} e foi implementado uma API REST com o \textit{framework} Java Spring-Boot para processar as requisições de leitura de placas.
 
+A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de placa para o contêiner de ANPR.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{anpr4j-data.jpg}
+	\caption{Fluxo de requisições no contêiner de ANPR}
+	\label{fig:anpr4j-data}
+\end{figure}
+
+A biblioteca OpenALPR, ao receber uma imagem, realiza uma série de passos para detectar ...
 
 \subsection{Banco de Dados (BD)}
 
-Este é o módulo responsável pela persistência dos dados usados pelo sistema, construído com uma imagem do MongoDB\footnote{Página oficial do MongoDB: \url{https://www.mongodb.com/}. Página para a imagem Docker do MongoDB: \url{https://hub.docker.com/_/mongo}}
-
+Este é o módulo responsável pela persistência dos dados usados pelo sistema, construído com uma imagem do MongoDB\footnote{Página oficial do MongoDB: \url{https://www.mongodb.com/}. Página para a imagem Docker do MongoDB: \url{https://hub.docker.com/_/mongo}}. Ele se encontra em um contêiner próprio para fins de controle de eventuais atualizações e uso de volume de disco, uma vez que a lógica da persistência dos dados se encontra no módulo descrito na sub-seção seguinte.
 
 \subsection{Registro de veículos}
 
@@ -140,6 +160,25 @@ O módulo \textit{Web App}
 
 
 \section{Resultados} 
+
+\begin{quotation}
+	\texttt{\\
+		/anpr-auth\\
+		+-- /mongo\\
+		+-- /alpr4j\\
+		|   +-- Dockerfile\\
+		|   +-- ...\\
+		+-- /check4j\\
+		|   +-- Dockerfile\\
+		|   +-- ...\\
+		+-- /vehiclespy\\
+		|   +-- Dockerfile\\
+		|   +-- ...\\
+		+-- /anpr-ng\\
+		|   +-- Dockerfile\\
+		|   +-- ...\\
+		+-- docker-compose.yml\\}
+\end{quotation}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at tellus sed diam condimentum tempus. Morbi sagittis ante ex, sed molestie mi euismod sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in elementum dui. Aliquam eget cursus erat. Quisque porttitor vitae metus pulvinar commodo. Vivamus vel ipsum quis diam cursus vulputate vitae at metus. Morbi at quam in mauris lobortis varius. Etiam venenatis lacinia felis quis viverra. Quisque volutpat ac nisl ut gravida. Etiam auctor lacus a nisi fermentum blandit. Fusce at luctus elit, at fringilla est. Nunc nunc nibh, tempor id imperdiet nec, porttitor non tortor.
 

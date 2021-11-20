@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  18 NOV 2021 20:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  20 NOV 2021 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -325,31 +325,53 @@ Package pdftex.def Info: rest.jpg  used on input line 78.
 <anpr-steps.jpg, id=17, 614.295pt x 413.545pt>
 File: anpr-steps.jpg Graphic file (type jpg)
 <use anpr-steps.jpg>
-Package pdftex.def Info: anpr-steps.jpg  used on input line 94.
+Package pdftex.def Info: anpr-steps.jpg  used on input line 93.
 (pdftex.def)             Requested size: 341.43437pt x 229.85461pt.
  [3 <./conteiner.jpg> <./rest.jpg>]
 <anpr-auth.jpg, id=22, 532.99126pt x 340.27126pt>
 File: anpr-auth.jpg Graphic file (type jpg)
 <use anpr-auth.jpg>
-Package pdftex.def Info: anpr-auth.jpg  used on input line 106.
+Package pdftex.def Info: anpr-auth.jpg  used on input line 105.
 (pdftex.def)             Requested size: 341.43437pt x 217.98573pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 115.
+(Font)              <7> on input line 114.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 115.
- [4 <./anpr-steps.jpg> <./anpr-auth.jpg>] (./sbc-template.bbl [5]
+(Font)              <5> on input line 114.
+ [4 <./anpr-steps.jpg> <./anpr-auth.jpg>]
+Underfull \hbox (badness 1412) in paragraph at lines 116--116
+[][]\OT1/ptm/m/n/10 P[]agina para a documenta[][]ao oficial do Docker Compose: 
+$\OT1/pcr/m/n/10 https : / / docs . docker . com /
+ []
+
+
+Underfull \hbox (badness 6047) in paragraph at lines 123--124
+[]\OT1/ptm/m/n/12 Executar o comando \OT1/pcr/m/n/12 docker-compose up \OT1/ptm
+/m/n/12 para inicializar todos os
+ []
+
+<anpr4j-data.jpg, id=26, 385.44pt x 252.945pt>
+File: anpr4j-data.jpg Graphic file (type jpg)
+<use anpr4j-data.jpg>
+Package pdftex.def Info: anpr4j-data.jpg  used on input line 136.
+(pdftex.def)             Requested size: 341.43437pt x 224.06667pt.
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+
+ []
+
+[6 <./anpr4j-data.jpg>] (./sbc-template.bbl
 Underfull \hbox (badness 1072) in paragraph at lines 40--43
 []\OT1/ptm/m/n/12 Viggiato, M., Terra, R., Rocha, H., Valente, M. T., and Figue
 iredo, E. (2018).
  []
 
-) [6] (./sbc-template.aux) ) 
+) [7] (./sbc-template.aux) ) 
 Here is how much of TeX's memory you used:
- 4811 strings out of 483183
- 72803 string characters out of 5966291
- 322458 words of memory out of 5000000
- 19746 multiletter control sequences out of 15000+600000
- 555608 words of font info for 61 fonts, out of 8000000 for 9000
+ 4822 strings out of 483183
+ 72971 string characters out of 5966291
+ 324466 words of memory out of 5000000
+ 19754 multiletter control sequences out of 15000+600000
+ 557807 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,10n,46p,951b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base
@@ -359,10 +381,10 @@ exlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (6 pages, 213428 bytes).
+Output written on sbc-template.pdf (7 pages, 235471 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
