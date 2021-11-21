@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  20 NOV 2021 18:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  21 NOV 2021 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -355,22 +355,52 @@ File: anpr4j-data.jpg Graphic file (type jpg)
 Package pdftex.def Info: anpr4j-data.jpg  used on input line 136.
 (pdftex.def)             Requested size: 341.43437pt x 224.06667pt.
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 1048) in paragraph at lines 151--152
+[]\OT1/ptm/b/n/12 P[]os-processamento: \OT1/ptm/m/n/12 Cria um \OT1/ptm/m/it/12
+ ranking \OT1/ptm/m/n/12 de placas detectadas, com base na
+ []
+
+[6 <./anpr4j-data.jpg>]
+<check4j.jpg, id=33, 744.7825pt x 292.09125pt>
+File: check4j.jpg Graphic file (type jpg)
+<use check4j.jpg>
+Package pdftex.def Info: check4j.jpg  used on input line 174.
+(pdftex.def)             Requested size: 426.79135pt x 167.38512pt.
+
+Underfull \hbox (badness 1117) in paragraph at lines 181--182
+\OT1/ptm/m/n/12 dois pap[]eis no sistema implementado: (i) []e o \OT1/ptm/m/it/
+12 front-end \OT1/ptm/m/n/12 para a manuten[][]ao das
+ []
+
+
+Underfull \hbox (badness 1742) in paragraph at lines 183--183
+[][]\OT1/ptm/m/n/10 Documenta[][]ao oficial do Apache Cordova: $\OT1/pcr/m/n/10
+ https : / / cordova . apache . org / docs / en /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
-[6 <./anpr4j-data.jpg>] (./sbc-template.bbl
-Underfull \hbox (badness 1072) in paragraph at lines 40--43
+[7 <./check4j.jpg>] (./sbc-template.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
+[]\OT1/ptm/m/n/12 Hill, M. (2014).  \OT1/ptm/m/it/12 OpenALPR Design\OT1/ptm/m/
+n/12 .  OpenALPR,
+ []
+
+[8]
+Underfull \hbox (badness 1072) in paragraph at lines 45--48
 []\OT1/ptm/m/n/12 Viggiato, M., Terra, R., Rocha, H., Valente, M. T., and Figue
 iredo, E. (2018).
  []
 
-) [7] (./sbc-template.aux) ) 
+) [9] (./sbc-template.aux) ) 
 Here is how much of TeX's memory you used:
- 4822 strings out of 483183
- 72971 string characters out of 5966291
- 324466 words of memory out of 5000000
- 19754 multiletter control sequences out of 15000+600000
+ 4830 strings out of 483183
+ 73085 string characters out of 5966291
+ 324485 words of memory out of 5000000
+ 19761 multiletter control sequences out of 15000+600000
  557807 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,10n,46p,951b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -381,10 +411,10 @@ exlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (7 pages, 235471 bytes).
+Output written on sbc-template.pdf (9 pages, 280985 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

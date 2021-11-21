@@ -65,7 +65,7 @@ A Virtualização baseada em contêiner \cite{eder2016} consiste na utilização
 	\label{fig:conteiner}
 \end{figure} 
 
-Nessa abordagem, o contêiner aloca apenas os recursos necessário para executar sua aplicação, enquanto trabalha isolado de outros contêineres que possam estar em execução em um mesmo hospedeiro. Essa característica corrobora com sua utilidade quanto a aplicação em soluções baseadas de MSA, uma vez que os contêineres são capazes de se comunicar entre si.
+Nessa abordagem, o contêiner aloca apenas os recursos necessário para executar sua aplicação, enquanto trabalha isolado de outros contêineres que possam estar em execução em um mesmo hospedeiro. Essa característica corrobora com sua utilidade quanto a aplicação em soluções baseadas em MSA, uma vez que os contêineres são capazes de se comunicar entre si.
 
 \subsection{REST}
 
@@ -127,9 +127,9 @@ Vale ressaltar que, apesar do controle ser realizado em um único arquivo, em um
 
 \subsection{ANPR}
 
-O módulo ANPR é o responsável por realizar o processamento das imagens dos veículo e devolver o texto de sua placa. Para tal, foi utilizado a biblioteca de código-aberto OpenALPR\footnote{Endereço do repositório e documentação da biblioteca: \url{https://github.com/openalpr/openalpr}} e foi implementado uma API REST com o \textit{framework} Java Spring-Boot para processar as requisições de leitura de placas.
+O módulo ANPR é o responsável por realizar o processamento das imagens dos veículo e devolver o texto de sua placa. Para tal, foi utilizado a biblioteca de código-aberto OpenALPR\footnote{Endereço do repositório e documentação da biblioteca: \url{https://github.com/openalpr/openalpr}} e foi implementado uma API REST com o \textit{framework} Java Spring-Boot para processar as requisições de leitura de placas e devolver uma resposta, no formato JSON\footnote{JavaScript Object Notation.}, para o contêiner cliente.
 
-A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de placa para o contêiner de ANPR.
+A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de placa para a API do contêiner de ANPR.
 
 \begin{figure}[ht]
 	\centering
@@ -138,7 +138,20 @@ A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de p
 	\label{fig:anpr4j-data}
 \end{figure}
 
-A biblioteca OpenALPR, ao receber uma imagem, realiza uma série de passos para detectar ...
+A biblioteca OpenALPR, ao receber uma imagem, realiza uma série de etapas para detectar o possível texto escrito na placa do veículo \cite{openalprdesign}:
+
+\begin{enumerate}
+	\item \textbf{Detecção:} Busca regiões com possíveis placas na imagem;
+	\item \textbf{Binarização:} Transforma em preto-e-branco as regiões de possíveis placas;
+	\item \textbf{Análise de caractéres:} Busca por possíveis caractéres na imagem;
+	\item \textbf{Análise de bordas:} Busca pelas bordas da placa na região;
+	\item \textbf{Ajuste de distorção:} Ajusta distorções de perspectiva para a placa ser "vista de frente";
+	\item \textbf{Segmentação:} Segmenta individualmente os caractéres na placa;
+	\item \textbf{OCR\footnote{Optical character recognition (Reconhecimento ótico de caractéres)}:} Analisa a imagem de cada caractére para encontrar a letra ou número correspondente;
+	\item \textbf{Pós-processamento:} Cria um \textit{ranking} de placas detectadas, com base na confiança e espressões regulares (se solicitado).
+\end{enumerate}
+
+A resposta do OpenALPR é então capturada pela API e enviada ao contêiner solicitante.
 
 \subsection{Banco de Dados (BD)}
 
@@ -146,18 +159,28 @@ Este é o módulo responsável pela persistência dos dados usados pelo sistema,
 
 \subsection{Registro de veículos}
 
+Este é o módulo responsável pela lógica de persistência do sistema e acesso ao banco de dados.
+
+Escrito em Python, este módulo implementas as operações CRUD\footnote{\textit{Create}, \textit{Read}, \textit{Update} e \textit{Delete}} para veículos e usuários do sistema — utilizando a biblioteca PyMongo\footnote{Documentação oficial do PyMongo: \url{https://docs.mongodb.com/drivers/pymongo/}} —, enquanto implementa uma API — com a biblioteca Flask\footnote{Documentação oficial do Flask: \url{https://flask.palletsprojects.com/en/2.0.x/}}—, para tratar as requisições de outros módulos.
 
 \subsection{Controle de acesso}
 
+O módulo de Controle de acesso — escrito em Java com Spring-Boot — é onde a principal lógica de negócio do sistema está implementada. Ele é responsável por receber, via requisição REST, uma imagem de uma aplicação cliente qualquer, repassar esta imagem para o módulo ANPR a fim de obter a placa do veículo e então requisitar para o módulo de Registros as informações de cadastro referentes a placa encontrada. Uma vez de posse dessas informações, ele responde a aplicação cliente se o veículo da imagem tem ou não a autorização de acesso.
+
+O diagrama da Figura~\ref{fig:check4j} ilustra a troca de mensagens encabeçada pelo módulo de Controle de acesso.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{check4j.jpg}
+	\caption{Fluxo de requisições a parir do Controle de acesso}
+	\label{fig:check4j}
+\end{figure}
 
 \subsection{\textit{Web App}}
 
-O módulo \textit{Web App} 
+O módulo \textit{Web App} — escrito em Typescript com o \textit{framework} Angular 9 —, interpreta dois papéis no sistema implementado: (i) é o \textit{front-end} para a manutenção das informações de cadastro de veículos, acessando o módulo Registro de veículos, e (ii) é o \textit{front-end} para prova de conceito do sistema, realizando requisições para o módulo de Controle de acesso.
 
-
-
-
-
+Além se poder ser executado em um contêiner Docker, este módulo pode ser complado como um aplicativo móvel multiplataforma\footnote{Android ou iOS}, através do \textit{framework} Apache Cordova\footnote{Documentação oficial do Apache Cordova: \url{https://cordova.apache.org/docs/en/latest/}}.
 
 \section{Resultados} 
 
