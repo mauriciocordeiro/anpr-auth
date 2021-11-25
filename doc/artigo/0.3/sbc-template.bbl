@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[Aalsalem and Khan 2017]{aalsalem2017campussense}
+Aalsalem, M.~Y. and Khan, W.~Z. (2017).
+\newblock Campussense—a smart vehicle parking monitoring and management
+  system using anpr cameras and android phones.
+\newblock In {\em 2017 19th International Conference on Advanced Communication
+  Technology (ICACT)}, pages 809--815. IEEE.
+
 \bibitem[Adamczyk et~al. 2011]{adamczyk2011}
 Adamczyk, P., Smith, P.~H., Johnson, R.~E., and Hafiz, M. (2011).
 \newblock Rest and web services: In theory and in practice.
@@ -10,6 +17,13 @@ Eder, M. (2016).
 \newblock Hypervisor-vs. container-based virtualization.
 \newblock {\em Future Internet (FI) and Innovative Internet Technologies and
   Mobile Communications (IITM)}, 1.
+
+\bibitem[Felix et~al. 2017]{felix2017entry}
+Felix, A.~Y., Jesudoss, A., and Mayan, J.~A. (2017).
+\newblock Entry and exit monitoring using license plate recognition.
+\newblock In {\em 2017 IEEE International Conference on Smart Technologies and
+  Management for Computing, Communication, Controls, Energy and Materials
+  (ICSTM)}, pages 227--231. IEEE.
 
 \bibitem[Hill 2014]{openalprdesign}
 Hill, M. (2014).
@@ -22,6 +36,12 @@ Homay, A., Zoitl, A., Sousa, M.~d., and Wollschlaeger, M. (2019).
   systems.
 \newblock In {\em 2019 IEEE 17th International Conference on Industrial
   Informatics (INDIN)}, volume~1, pages 1165--1168. IEEE.
+
+\bibitem[Matysiak et~al. 2013]{matysiak2013analysis}
+Matysiak, A., Kruszewski, M., Niezgoda, M., and Kami{\'n}ski, T. (2013).
+\newblock The analysis of anpr camera location points in bus lanes monitoring
+  system in the city of warsaw.
+\newblock {\em Journal of KONES}, 20.
 
 \bibitem[Mufti et~al. 2021]{mufti2021}
 Mufti, N., Shah, S. A.~A., et~al. (2021).
