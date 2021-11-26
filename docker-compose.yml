@@ -12,29 +12,13 @@ services:
       - 27017:27017
     volumes: 
       - data:/data/db
-  # alpr4j:
-  #   image: mauriciocordeiro/alpr4j:v1
-  #   container_name: alpr4j
-  #   networks: 
-  #     - net
-  #   ports:
-  #     - 8080:8080
-  # vrpdr:
-  #   container_name: vrpdr
-  #   build: ./vrpdr
-  #   networks:
-  #     - net
-  #   ports:
-  #     - 5000:5000
-  #   tty: true
-  cateye:
-    container_name: cateye
-    build: ./cateye-alpr
-    networks:
+  alpr4j:
+    container_name: alpr4j
+    build: ./alpr4j
+    networks: 
       - net
     ports:
-      - 5000:5000
-      - 5556:5556
+      - 8080:8080
   vehiclespy:
     image: mauriciocordeiro/vehiclespy:v1
     container_name: vehiclespy
@@ -55,9 +39,8 @@ services:
     ports:
       - 8081:8081
   anpr-ng:
-    image: mauriciocordeiro/anpr-ng:v1
     container_name: anpr-ng
-    # build: ./anpr-ng
+    build: ./anpr-ng
     networks:
       - net
     ports:
