@@ -20,7 +20,6 @@ A estrutura do repositório deve ser
 ```bash
 .
 └── anpr-auth/
-    ├── anpr-app/
     ├── anpr-ng/
     ├── check4j/
     ├── doc/
