@@ -14,7 +14,8 @@ services:
       - data:/data/db
   alpr4j:
     container_name: alpr4j
-    build: ./alpr4j
+    image: mauriciocordeiro/alpr4j:v1
+    # build: ./alpr4j
     networks: 
       - net
     ports:
