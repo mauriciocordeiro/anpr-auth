@@ -13,9 +13,8 @@ services:
     volumes: 
       - data:/data/db
   alpr4j:
-    container_name: alpr4j
     image: mauriciocordeiro/alpr4j:v1
-    # build: ./alpr4j
+    container_name: alpr4j
     networks: 
       - net
     ports:
@@ -40,8 +39,8 @@ services:
     ports:
       - 8081:8081
   anpr-ng:
+    image: mauriciocordeiro/anpr-ng:v1
     container_name: anpr-ng
-    build: ./anpr-ng
     networks:
       - net
     ports:
