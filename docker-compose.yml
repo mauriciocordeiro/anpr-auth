@@ -19,22 +19,6 @@ services:
       - net
     ports:
       - 8080:8080
-  # vrpdr:
-  #   container_name: vrpdr
-  #   build: ./vrpdr
-  #   networks:
-  #     - net
-  #   ports:
-  #     - 5000:5000
-  #   tty: true
-  #cateye:
-    #container_name: cateye
-    #build: ./cateye-alpr
-    #networks:
-      #- net
-    #ports:
-      #- 5000:5000
-      #- 5556:5556
   vehiclespy:
     image: mauriciocordeiro/vehiclespy:v1
     container_name: vehiclespy
@@ -57,7 +41,6 @@ services:
   anpr-ng:
     image: mauriciocordeiro/anpr-ng:v1
     container_name: anpr-ng
-    # build: ./anpr-ng
     networks:
       - net
     ports:

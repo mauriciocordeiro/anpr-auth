@@ -1,4 +1,7 @@
 # anpr-auth
+
+[![Docker Image CI](https://github.com/mauriciocordeiro/anpr-auth/actions/workflows/docker-compose.yml/badge.svg)](https://github.com/mauriciocordeiro/anpr-auth/actions/workflows/docker-compose.yml)
+
 Vehicle authentication based on ANPR
 
 ---
@@ -20,7 +23,6 @@ A estrutura do repositório deve ser
 ```bash
 .
 └── anpr-auth/
-    ├── anpr-app/
     ├── anpr-ng/
     ├── check4j/
     ├── doc/
