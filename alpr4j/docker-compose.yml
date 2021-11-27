@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  alpr4j:
+    container_name: alpr4j
+    build: .
+    networks: 
+      - net
+    ports:
+      - 8080:8080
+networks:
+  net:

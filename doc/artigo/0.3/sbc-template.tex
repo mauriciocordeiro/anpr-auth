@@ -5,7 +5,6 @@
 \usepackage{graphicx,url}
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel} 
-
      
 \sloppy
 
@@ -50,7 +49,7 @@ Donec ornare venenatis magna. Aenean facilisis tincidunt vestibulum. Quisque at 
 
 Em \citen{felix2017entry}, o ANPR é aplicado em um Circuito Fechado de TV para o monitoramento de entrada e saída de veículos em um ambiente. A solução apresentada utiliza processamento de imagem com MATLAB, OCR e rede neural para classificação de imagens e caractéres.
 
-\citen{matysiak2013analysis} propõem o uso de câmeras com tecnologias de ANPR para monitorar em punir eventuais infrações de trânsito em faixas exclusivas para tráfego de ônibus.
+\citen{matysiak2013analysis} propõem o uso de câmeras com tecnologias de ANPR para monitorar em punir eventuais infrações de trânsito em faixas exclusivas para tráfego de ônibus, na cidade de Varsóvia, na Polônia.
 
 \section{Arquitetura} \label{sec:architecture}
 
@@ -186,44 +185,49 @@ O diagrama da Figura~\ref{fig:check4j} ilustra a troca de mensagens encabeçada 
 
 \subsection{\textit{Web App}}
 
-O módulo \textit{Web App} — escrito em Typescript com o \textit{framework} Angular 9 —, interpreta dois papéis no sistema implementado: (i) é o \textit{front-end} para a manutenção das informações de cadastro de veículos, acessando o módulo Registro de veículos, e (ii) é o \textit{front-end} para prova de conceito do sistema, realizando requisições para o módulo de Controle de acesso.
+O módulo \textit{Web App} — escrito em TypeScript com o \textit{framework} Angular 9 —, interpreta dois papéis no sistema implementado: (i) é o \textit{front-end} para a manutenção das informações de cadastro de veículos, acessando o módulo Registro de veículos, e (ii) é o \textit{front-end} para prova de conceito do sistema, realizando requisições para o módulo de Controle de acesso.
 
-Além se poder ser executado em um contêiner Docker, este módulo pode ser complado como um aplicativo móvel multiplataforma\footnote{Android ou iOS}, através do \textit{framework} Apache Cordova\footnote{Documentação oficial do Apache Cordova: \url{https://cordova.apache.org/docs/en/latest/}}.
+Além se poder ser executado em um contêiner Docker, este módulo pode ser compilado como um aplicativo móvel multiplataforma\footnote{Android ou iOS}, através do \textit{framework} Apache Cordova\footnote{Documentação oficial do Apache Cordova: \url{https://cordova.apache.org/docs/en/latest/}}.
 
-\section{Resultados} 
+\section{Resultados}
 
-%nomes dos contêiners
-%portas
-%montagem de prints para o fluxo
+O principal objetivo deste trabalho foi implementar um sistema que utilize tecnologias de ANPR, em uma arquitetura MSA e que utilize ferramentas amplamente adotadas pela comunidade de desenvolvimento de \textit{software} (como o Angular, Python, Java com Spring-Boot e o MongoDB). Os resultados obtidos são apresentados como se segue.
 
-\begin{quotation}
-	\texttt{\\
-		/anpr-auth\\
-		+-- /mongo\\
-		+-- /alpr4j\\
-		|   +-- Dockerfile\\
-		|   +-- ...\\
-		+-- /check4j\\
-		|   +-- Dockerfile\\
-		|   +-- ...\\
-		+-- /vehiclespy\\
-		|   +-- Dockerfile\\
-		|   +-- ...\\
-		+-- /anpr-ng\\
-		|   +-- Dockerfile\\
-		|   +-- ...\\
-		+-- docker-compose.yml\\}
-\end{quotation}
+A construção da infraestrutura interna e definição das portas de comunicação entre contêineres é realizada, conforme apresentado anteriormente, através do \textit{Docker Compose} e seu arquivo de configuração. Uma vez executado, os 5 contêineres que representam o sistema devem estar acessíveis da seguinte forma:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at tellus sed diam condimentum tempus. Morbi sagittis ante ex, sed molestie mi euismod sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in elementum dui. Aliquam eget cursus erat. Quisque porttitor vitae metus pulvinar commodo. Vivamus vel ipsum quis diam cursus vulputate vitae at metus. Morbi at quam in mauris lobortis varius. Etiam venenatis lacinia felis quis viverra. Quisque volutpat ac nisl ut gravida. Etiam auctor lacus a nisi fermentum blandit. Fusce at luctus elit, at fringilla est. Nunc nunc nibh, tempor id imperdiet nec, porttitor non tortor.
+\begin{itemize}
+\item \textit{Web App}: \texttt{anpr-ng:4000} ou \texttt{localhost:4000};
+\item Controle de acesso: \texttt{check4j:8081} ou \texttt{localhost:8081};
+\item Registro de veículos: \texttt{vehiclespy:5001} ou \texttt{localhost:5001};
+\item ANPR: \texttt{alpr4j:8080} ou \texttt{localhost:8080};
+\item Banco de dados: \texttt{db:27017} ou \texttt{localhost:27017}.
+\end{itemize}
 
-Sed eros augue, pharetra at dignissim sed, dignissim in odio. Praesent id maximus tellus. Fusce nec condimentum arcu, efficitur sollicitudin dolor. Suspendisse molestie iaculis diam ut tincidunt. Sed ultricies massa sit amet ex convallis, at porttitor nulla eleifend. In ut varius ipsum. Aliquam molestie vestibulum purus, eu rhoncus nisl commodo sit amet. Donec ac ex nisl. Nullam ultrices lectus ipsum, non porta nunc vehicula id. 
+Com o objetivo de demonstrar o conceito do sistema, o módulo \textit{Web Apps} possui três formulários principais: (i) Listagem de veículos, (ii) Cadastro de veículos — apresentados na Figura~\ref{fig:vehicles-forms} — e (iii) Verificação de autorização — na Figura~\ref{fig:check-form}.
 
-\section{Conclusão}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.9\textwidth]{vehicles-forms.png}
+	\caption{Formulários de exibição e cadastro de veículos.}
+	\label{fig:vehicles-forms}
+\end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at tellus sed diam condimentum tempus. Morbi sagittis ante ex, sed molestie mi euismod sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in elementum dui. Aliquam eget cursus erat. Quisque porttitor vitae metus pulvinar commodo. Vivamus vel ipsum quis diam cursus vulputate vitae at metus. Morbi at quam in mauris lobortis varius. Etiam venenatis lacinia felis quis viverra. Quisque volutpat ac nisl ut gravida. Etiam auctor lacus a nisi fermentum blandit. Fusce at luctus elit, at fringilla est. Nunc nunc nibh, tempor id imperdiet nec, porttitor non tortor.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.9\textwidth]{check-form.png}
+	\caption{Formulário de verificação de autorização.}
+	\label{fig:check-form}
+\end{figure}
 
-\textit{trabalhos futuros}
+\section{Trabalhos Futuros}
+
+O sistema implementado neste trabalho, apesar de ter cumprido os objetivos propostos, possui alguns pontos de melhoria que podem sem tratados em trabalhos futuros, como:
+
+\begin{itemize}
+	\item \textbf{Integração com periféricos de entrada e saída:} Integrar o sistema com câmeras de monitoramento para captura de imagem e vídeo de veículos e com catracas eletrônicas para liberação de veículos;
+	\item \textbf{Otimização de gestão e escalabilidade:} Utilizar ferramentas como Kubernetes\footnote{Documentação oficial do Kubernetes \url{https://kubernetes.io/docs/home/}}, para melhor gerenciamento e escalabilidade dos contêineres;
+	 \item \textbf{Melhoria de performance no módulo de ANPR:} Estudos podem ser realizados neste ponto, com a substituição do contêiner \texttt{alpr4j} por outro com uma metodologia diferente de ANPR, com uso de Redes Neurais e treinamento específico da rede de acordo com o ambiente onde o sistema será implantado, a fim de melhorar a precisão dos resultados fornecidos pelo módulo.
+\end{itemize}
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
