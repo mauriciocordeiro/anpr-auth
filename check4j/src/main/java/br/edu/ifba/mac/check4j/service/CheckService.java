@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import br.edu.ifba.mac.check4j.model.VehicleList;
 
 @Service
 public class CheckService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(CheckService.class);
 	
 	@Value("${check4j.workdir}")
 	private String workdir;
@@ -25,6 +28,8 @@ public class CheckService {
 	public Vehicle check(byte[] file, String filename) throws IOException, UnirestException {	
 		String filepath = this.workdir+filename;
 		Path path = save(file, filepath);
+
+		LOGGER.info("workdir: "+workdir);
 		
 		Result alpr = AlprResultFactory.build(path.toFile());
 

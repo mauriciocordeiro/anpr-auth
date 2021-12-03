@@ -6,6 +6,8 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 
 import br.edu.ifba.mac.check4j.model.AlprResult;
@@ -15,6 +17,8 @@ import br.edu.ifba.mac.check4j.model.Result;
 import br.edu.ifba.mac.check4j.model.VrpdrResult;
 
 public class AlprResultFactory {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(AlprResultFactory.class);
 
 	@Value("${check4j.service}")
 	private static String service;
@@ -40,7 +44,9 @@ public class AlprResultFactory {
 		HttpResponse<String> response = Unirest
 				.post("http://alpr4j:8080/v1/find")
 				.field("image", file)
-				.asString();	
+				.asString();
+
+		LOGGER.info(response.getBody());
 		
 		return new AlprResult(response.getBody());
 	}
