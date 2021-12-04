@@ -62,7 +62,7 @@ A Virtualização baseada em contêiner \cite{eder2016} consiste na utilização
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{conteiner.jpg}
+	\includegraphics[width=.9\textwidth]{conteiner.jpg}
 	\caption{Virtualização baseada em contêiner}
 	\label{fig:conteiner}
 \end{figure} 
@@ -134,7 +134,8 @@ A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de p
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.6\textwidth]{anpr4j-data.jpg}
+	\includegraphics[width=.6
+	\textwidth]{anpr4j-data.jpg}
 	\caption{Fluxo de requisições no contêiner de ANPR}
 	\label{fig:anpr4j-data}
 \end{figure}
@@ -147,22 +148,28 @@ A biblioteca OpenALPR, ao receber uma imagem, realiza uma série de etapas para 
 	\item \textbf{Análise de caractéres:} busca por possíveis caractéres na imagem;
 	\item \textbf{Análise de bordas:} busca pelas bordas da placa na região;
 	\item \textbf{Ajuste de distorção:} corrige a perspectiva da placa, para que seja "vista de frente";
-	\item \textbf{Segmentação:} segmentação individual dos caractéres na placa;
+	\item \textbf{Segmentação:} separação dos caractéres da placa em imagens individuais;
 	\item \textbf{OCR:} análise da imagem de cada caractére para encontrar a letra ou número correspondente;
 	\item \textbf{Pós-processamento:} criação de um \textit{ranking} de placas detectadas, com base na confiança e espressões regulares (se solicitado).
 \end{enumerate}
 
 A resposta do OpenALPR é então capturada pela API e enviada ao contêiner solicitante.
 
+A adoção do Spring-Boot para o desenvolvimento da API deste módulo (bem como do módulo de \textit{Controle de acesso}) se justifica pelo fato do \textit{framework} abstrair uma série de configurações para o desenvolvimento e execução de aplicações Java, enquanto fornece ferramentas para a escrita de funções que utilizam comunicação via HTTP, persistência de dados e suíte de testes, permitindo que o desenvolvedor direcione maior esforço para a implementação de regras de negócio e fluxos semânticos na aplicação.
+
 \subsection{Banco de Dados (BD)}
 
 Este é o módulo responsável pela persistência dos dados usados pelo sistema, construído com uma imagem do MongoDB\footnote{Página oficial do MongoDB: \url{https://www.mongodb.com/}. Página para a imagem Docker do MongoDB: \url{https://hub.docker.com/_/mongo}}. Ele se encontra em um contêiner próprio para fins de controle de eventuais atualizações e uso de volume de disco, uma vez que a lógica da persistência dos dados se encontra no módulo descrito na sub-seção seguinte.
+
+A adoção do MongoDB para a persistência de dados do sistema se deu pelo fato de apenas a entidade \textit{Veículo}, sem nenhuma relação com outra entidade dentro do escopo proposto.
 
 \subsection{Registro de veículos}
 
 Este é o módulo responsável pela lógica de persistência do sistema e acesso ao banco de dados.
 
 Escrito em Python, este módulo implementas as operações CRUD\footnote{\textit{Create}, \textit{Read}, \textit{Update} e \textit{Delete}} para veículos e usuários do sistema — utilizando a biblioteca PyMongo\footnote{Documentação oficial do PyMongo: \url{https://docs.mongodb.com/drivers/pymongo/}} —, enquanto implementa uma API — com a biblioteca Flask\footnote{Documentação oficial do Flask: \url{https://flask.palletsprojects.com/en/2.0.x/}}—, para tratar as requisições de outros módulos.
+
+O PyMongo é o \textit{driver} oficial do MongoDB para Python, fato que justifica sua escolha. Enquanto a adoção do Flask se justifica por ser um \textit{framework} de código-aberto e pela sua versatilidade e independência de outras bibliotecas, mantendo um núcleo simples, porém, extensível. 
 
 \subsection{Controle de acesso}
 
@@ -183,35 +190,72 @@ O módulo \textit{Web App}, escrito em TypeScript com o \textit{framework} Angul
 
 Além se poder ser executado em um contêiner Docker, este módulo pode ser compilado como um aplicativo móvel multiplataforma\footnote{Android ou iOS} através do \textit{framework} Apache Cordova\footnote{Documentação oficial do Apache Cordova: \url{https://cordova.apache.org/docs/en/latest/}}.
 
+A escolha do Angular para o desenvolvimento deste modo se deu pelo fato de possibilitar a construção de aplicações multi-plataforma, de alto desempenho e possuir uma grande comunidade ativa na Internet.
+
 \section{Resultados}
 
 O principal objetivo deste trabalho foi implementar um sistema que utilize tecnologias de ANPR baseada em uma arquitetura MSA e que utilize ferramentas amplamente adotadas pela comunidade de desenvolvimento de \textit{software}. Os resultados obtidos são apresentados como se segue.
 
-A construção da infraestrutura interna e a definição das portas de comunicação entre contêineres é realizada, através do \textit{Docker Compose} e de seu arquivo de configuração, conforme apresentado anteriormente. Uma vez executado, os 5 contêineres que representam o sistema devem estar acessíveis da seguinte forma:
+A construção da infraestrutura interna e a definição das portas de comunicação entre contêineres é realizada, através do \textit{Docker Compose} e de seu arquivo de configuração, conforme apresentado anteriormente. Uma vez executado, os 5 contêineres que representam o sistema devem estar acessíveis conforme mostrado na Tabela \ref{table:container-table}.
 
-\begin{itemize}
-\item \textit{Web App}: \texttt{anpr-ng:4000} ou \texttt{localhost:4000};
-\item Controle de acesso: \texttt{check4j:8081} ou \texttt{localhost:8081};
-\item Registro de veículos: \texttt{vehiclespy:5001} ou \texttt{localhost:5001};
-\item ANPR: \texttt{alpr4j:8080} ou \texttt{localhost:8080};
-\item Banco de dados: \texttt{db:27017} ou \texttt{localhost:27017}.
-\end{itemize}
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{l|c|c}
+			\hline
+			\space & \textbf{Contêiner} & \textbf{Porta}\\
+			\hline
+			Banco de dados & \texttt{db} & \texttt{27017}\\
+			ANPR & \texttt{alpr4j} & \texttt{8080}\\
+			Registro de veículos & \texttt{vehiclespy} & \texttt{5051}\\
+			Controle de acesso & \texttt{check4j} & \texttt{8081}\\
+			\textit{Web App} & \texttt{anpr-ng} & \texttt{4000}\\
+			\hline
+		\end{tabular}
+	\caption{Contêineres e portas de comunicação}
+	\label{table:container-table}
+	\end{center}
+\end{table}
 
-Com o objetivo de demonstrar o conceito do sistema, o módulo \textit{Web Apps} possui três formulários principais: (i) Listagem de veículos, (ii) Cadastro de veículos — apresentados na Figura~\ref{fig:vehicles-forms} — e (iii) Verificação de autorização — na Figura~\ref{fig:check-form}.
+Com o objetivo de demonstrar o conceito do sistema, o módulo \textit{Web Apps} possui três formulários principais, conforme mostrado nas Figuras~\ref{fig:form01},~\ref{fig:form02} e~\ref{fig:form03}.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{vehicles-forms.png}
-	\caption{Formulários de exibição e cadastro de veículos.}
-	\label{fig:vehicles-forms}
+	\includegraphics[width=1\textwidth]{form01.png}
+	\caption{Formulário de listagem de veículos.}
+	\label{fig:form01}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{check-form.png}
+	\includegraphics[width=1\textwidth]{form02.png}
+	\caption{Formulário de cadastro de veículos.}
+	\label{fig:form02}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{form03.png}
 	\caption{Formulário de verificação de autorização.}
-	\label{fig:check-form}
+	\label{fig:form03}
 \end{figure}
+
+Durante o desenvolvimento do módulo ANPR, foi utilizado o \textit{dataset} de \citen{MendesJunior2011} para treinamento do OpenALPR. Contudo, devido as características de posicionamento de câmera, iluminação e tipos de placa (placas de uma mesma região e pouca variação de caractéres), a rede neural de detecção não atingiu um resultado satisfatório quando exposta a imagens de um contexto diferente daquele treinado (Tabela \ref{table:opelalpr-results}).
+
+\begin{table}
+	\centering
+	\begin{tabular}{l|c|c|c|c} 
+		\hline
+		& \multicolumn{2}{c|}{\textbf{Total}} & \multicolumn{2}{c}{\textbf{Confiança \textgreater{} 90\%}}  \\ 
+		\hline
+		\textbf{Detectados}     & 467 & 41,29\%                       & 152 & 32,55\%                                               \\
+		\textbf{Não-detectados} & 664 & 58,71\%                       & -   & -                                                     \\
+		\hline
+	\end{tabular}
+	\caption{Resultado do teste de validação do OpenALPR, com porcentagem de confiança no resultado.}
+	\label{table:opelalpr-results}
+\end{table}
+
+Uma vez que o treinamento e aperfeiçoamento dos resultados do módulo ANPR não faz parte do escopo deste trabalho, melhorias no OpenALPR ou, até mesmo, sua substituição (facilitada pela arquitetura do sistema) serão sugeridas com trabalhos futuros.
 
 \section{Trabalhos Futuros}
 

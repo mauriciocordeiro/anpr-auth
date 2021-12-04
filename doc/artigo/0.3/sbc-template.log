@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  3 DEC 2021 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  4 DEC 2021 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,7 +316,7 @@ Underfull \hbox (badness 1478) in paragraph at lines 57--58
 File: conteiner.jpg Graphic file (type jpg)
 <use conteiner.jpg>
 Package pdftex.def Info: conteiner.jpg  used on input line 65.
-(pdftex.def)             Requested size: 426.79135pt x 192.6423pt.
+(pdftex.def)             Requested size: 384.1096pt x 173.37558pt.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 6
 6.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
@@ -338,12 +338,12 @@ File: anpr-steps.jpg Graphic file (type jpg)
 <use anpr-steps.jpg>
 Package pdftex.def Info: anpr-steps.jpg  used on input line 95.
 (pdftex.def)             Requested size: 426.79135pt x 287.32143pt.
-[3 <./rest.jpg>]
-<anpr-auth.jpg, id=22, 532.99126pt x 340.27126pt>
+<anpr-auth.jpg, id=19, 532.99126pt x 340.27126pt>
 File: anpr-auth.jpg Graphic file (type jpg)
 <use anpr-auth.jpg>
 Package pdftex.def Info: anpr-auth.jpg  used on input line 106.
 (pdftex.def)             Requested size: 341.43437pt x 217.98573pt.
+[3 <./rest.jpg>]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 117.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -363,75 +363,97 @@ Underfull \hbox (badness 6047) in paragraph at lines 124--125
 <anpr4j-data.jpg, id=26, 385.44pt x 252.945pt>
 File: anpr4j-data.jpg Graphic file (type jpg)
 <use anpr4j-data.jpg>
-Package pdftex.def Info: anpr4j-data.jpg  used on input line 137.
+Package pdftex.def Info: anpr4j-data.jpg  used on input line 138.
 (pdftex.def)             Requested size: 256.07741pt x 168.04807pt.
 [5 <./anpr-auth.jpg>] [6 <./anpr4j-data.jpg>]
 <check4j.jpg, id=33, 744.7825pt x 292.09125pt>
 File: check4j.jpg Graphic file (type jpg)
 <use check4j.jpg>
-Package pdftex.def Info: check4j.jpg  used on input line 175.
+Package pdftex.def Info: check4j.jpg  used on input line 182.
 (pdftex.def)             Requested size: 426.79135pt x 167.38512pt.
 
-Underfull \hbox (badness 1742) in paragraph at lines 184--184
+Underfull \hbox (badness 1742) in paragraph at lines 191--191
 [][]\OT1/ptm/m/n/10 Documenta[][]ao oficial do Apache Cordova: $\OT1/pcr/m/n/10
  https : / / cordova . apache . org / docs / en /
  []
 
-
-Underfull \hbox (badness 1552) in paragraph at lines 190--191
+[7 <./check4j.jpg>]
+Underfull \hbox (badness 1552) in paragraph at lines 199--200
 \OT1/ptm/m/n/12 entre cont[]eineres []e realizada, atrav[]es do \OT1/ptm/m/it/1
 2 Docker Compose \OT1/ptm/m/n/12 e de seu arquivo de
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-93.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [7 <./check4j.jpg>]
-<vehicles-forms.png, id=38, 145.0218pt x 119.0046pt>
-File: vehicles-forms.png Graphic file (type png)
-<use vehicles-forms.png>
-Package pdftex.def Info: vehicles-forms.png  used on input line 204.
-(pdftex.def)             Requested size: 426.79135pt x 350.2742pt.
-<check-form.png, id=40, 1038.88126pt x 425.59pt>
-File: check-form.png Graphic file (type png)
-<use check-form.png>
-Package pdftex.def Info: check-form.png  used on input line 211.
+<form01.png, id=38, 1038.88126pt x 425.59pt>
+File: form01.png Graphic file (type png)
+<use form01.png>
+Package pdftex.def Info: form01.png  used on input line 223.
+(pdftex.def)             Requested size: 426.79135pt x 174.8372pt.
+<form02.png, id=40, 1038.88126pt x 425.59pt>
+File: form02.png Graphic file (type png)
+<use form02.png>
+Package pdftex.def Info: form02.png  used on input line 230.
+(pdftex.def)             Requested size: 426.79135pt x 174.8372pt.
+<form03.png, id=41, 1038.88126pt x 425.59pt>
+File: form03.png Graphic file (type png)
+<use form03.png>
+Package pdftex.def Info: form03.png  used on input line 237.
 (pdftex.def)             Requested size: 426.79135pt x 174.8372pt.
 
-[8 <./vehicles-forms.png>] (./sbc-template.bbl
+Underfull \hbox (badness 1406) in paragraph at lines 242--243
+[]\OT1/ptm/m/n/12 Durante o desenvolvimento do m[]odulo ANPR, foi utilizado o \
+OT1/ptm/m/it/12 dataset \OT1/ptm/m/n/12 de
+ []
+
+[8 <./form01.png>]
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 2
+48.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
+File: omlptm.fd 
+)
+LaTeX Font Info:    Font shape `OML/ptm/b/n' in size <12> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 248.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./form02.png> <./form03.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
+65.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) (./sbc-template.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 29--32
 []\OT1/ptm/m/n/12 Hill, M. (2014).  \OT1/ptm/m/it/12 OpenALPR Design\OT1/ptm/m/
 n/12 .  OpenALPR,
  []
 
-[9 <./check-form.png>]
-Underfull \hbox (badness 1072) in paragraph at lines 65--68
+[10]
+Underfull \hbox (badness 1072) in paragraph at lines 73--76
 []\OT1/ptm/m/n/12 Viggiato, M., Terra, R., Rocha, H., Valente, M. T., and Figue
 iredo, E. (2018).
  []
 
-) [10] (./sbc-template.aux) ) 
+) [11] (./sbc-template.aux) ) 
 Here is how much of TeX's memory you used:
- 4875 strings out of 483183
- 73789 string characters out of 5966291
- 322626 words of memory out of 5000000
- 19799 multiletter control sequences out of 15000+600000
- 558121 words of font info for 66 fonts, out of 8000000 for 9000
+ 4905 strings out of 483183
+ 74186 string characters out of 5966291
+ 322680 words of memory out of 5000000
+ 19824 multiletter control sequences out of 15000+600000
+ 558479 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 49i,10n,46p,837b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,11n,46p,837b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/bas
-e/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (10 pages, 705657 bytes).
+e/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (11 pages, 721209 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,7 +1,7 @@
 \begin{thebibliography}{}
 
 \bibitem[Aalsalem and Khan 2017]{aalsalem2017campussense}
-Aalsalem, M.~Y. and Khan, W.~Z. (\(2017\)).
+Aalsalem, M.~Y. and Khan, W.~Z. ((2017)).
 \newblock Campussense—a smart vehicle parking monitoring and management
   system using anpr cameras and android phones.
 \newblock In {\em 2017 19th International Conference on Advanced Communication
@@ -42,6 +42,14 @@ Matysiak, A., Kruszewski, M., Niezgoda, M., and Kami{\'n}ski, T. (2013).
 \newblock The analysis of anpr camera location points in bus lanes monitoring
   system in the city of warsaw.
 \newblock {\em Journal of KONES}, 20.
+
+\bibitem[Mendes~J{\'u}nior et~al. 2011]{MendesJunior2011}
+Mendes~J{\'u}nior, P.~R., Neves, J. M.~R., Tavares, A.~I., and Menotti, D.
+  (2011).
+\newblock Towards an automatic vehicle access control system: License plate
+  location.
+\newblock In {\em IEEE International Conference on Systems, Man, and
+  Cybernetics}, pages 2916--2921, Anchorage, AK, USA.
 
 \bibitem[Mufti et~al. 2021]{mufti2021}
 Mufti, N., Shah, S. A.~A., et~al. (2021).
