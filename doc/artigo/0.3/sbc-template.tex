@@ -40,7 +40,7 @@ Assim, a proposta desse trabalho consiste na implementação de um sistema de co
 
 \subsection{Trabalhos correlatos}
 
-Em \citen{felix2017entry}, o ANPR é aplicado em um Circuito Fechado de TV para o monitoramento de entrada e saída de veículos em um ambiente. A solução apresentada utiliza processamento de imagem com MATLAB, OCR (Optical Character Recognition) e rede neural para classificação de imagens e caractéres.
+Em \citen{felix2017entry}, o ANPR é aplicado em um Circuito Fechado de TV para o monitoramento de entrada e saída de veículos em um ambiente. A solução apresentada utiliza processamento de imagem com MATLAB, OCR (Optical Character Recognition) e rede neural para classificação de imagens e caracteres.
 
 \citen{matysiak2013analysis} propõem o uso de câmeras com tecnologias de ANPR para monitorar e punir eventuais infrações de trânsito em faixas exclusivas para tráfego de ônibus, na cidade de Varsóvia, na Polônia.
 
@@ -67,7 +67,7 @@ A Virtualização baseada em contêiner \cite{eder2016} consiste na utilização
 	\label{fig:conteiner}
 \end{figure} 
 
-Nessa abordagem, o contêiner aloca apenas os recursos necessários para executar sua aplicação, de modo a trabalhar isolado de outros contêineres que possam estar em execução em um mesmo hospedeiro. Essa característica corrobora com sua utilidade quanto a aplicação em soluções baseadas em MSA, uma vez que os contêineres são capazes de se comunicar entre si.
+Nessa abordagem, o contêiner aloca apenas os recursos necessários para executar sua aplicação, de modo a trabalhar isolado de outros contêineres que possam estar em execução em um mesmo hospedeiro. 
 
 \subsection{REST}
 
@@ -88,7 +88,7 @@ O ANPR (\textit{Automatic Number Plate Recognition}), que possui papel central n
 
 Existem diferentes técnicas e algoritmos que podem ser usados no ANPR, mas, de forma geral, todos eles seguem um processo com etapas bem definidas \cite{mufti2021}: (i) Extração da placa, (ii) Segmentação de caracteres e (iii) Reconhecimento de caracteres.
 
-Em cada uma das etapas para a execução do ANPR, \cite{shashirangana2020} pode-se empregar diferentes técnicas (que vão desde algoritmos de processamento de imagens até aplicação de redes neurais para classificação de objetos), conforme o mostrado na Figura~\ref{fig:anpr-steps}:
+Em cada uma das etapas para a execução do ANPR \cite{shashirangana2020}, pode-se empregar diferentes técnicas (que vão desde algoritmos de processamento de imagens até aplicação de redes neurais para classificação de objetos), conforme mostrado na Figura~\ref{fig:anpr-steps}.
 
 \begin{figure}[ht]
 	\centering
@@ -103,7 +103,7 @@ O sistema para controle de acesso de veículos implementado neste trabalho foi o
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.8\textwidth]{anpr-auth.jpg}
+	\includegraphics[width=1\textwidth]{anpr-auth.jpg}
 	\caption{Esquema da organização e relacionamento entre os contêineres do sistema}
 	\label{fig:anpr-auth}
 \end{figure}
@@ -128,14 +128,11 @@ Vale ressaltar que, apesar do controle ser realizado em um unico arquivo, o Dock
 
 \subsection{ANPR}
 
-O módulo ANPR é o responsável por realizar o processamento das imagens dos veículos e devolver o texto de sua placa. Para tal, foi utilizada a biblioteca de código-aberto OpenALPR\footnote{Endereço do repositório e documentação da biblioteca: \url{https://github.com/openalpr/openalpr}} e foi implementada uma API REST com o \textit{framework} Java Spring-Boot para processar as requisições de leitura de placas e devolver respostas, no formato JSON\footnote{JavaScript Object Notation.}, para o contêiner cliente.
-
-A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de placa para a API do contêiner de ANPR.
+O módulo ANPR é o responsável por realizar o processamento das imagens dos veículos e devolver o texto de sua placa. Para tal, foi utilizada a biblioteca de código-aberto OpenALPR\footnote{Endereço do repositório e documentação da biblioteca: \url{https://github.com/openalpr/openalpr}} e foi implementada uma API REST com o \textit{framework} Java Spring Boot para processar as requisições de leitura de placas e devolver respostas, no formato JSON\footnote{JavaScript Object Notation.}, para o contêiner cliente. A Figura~\ref{fig:anpr4j-data} ilustra o fluxo das requisições de leitura de placa para a API do contêiner de ANPR.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.6
-	\textwidth]{anpr4j-data.jpg}
+	\includegraphics[width=.8\textwidth]{anpr4j-data.jpg}
 	\caption{Fluxo de requisições no contêiner de ANPR}
 	\label{fig:anpr4j-data}
 \end{figure}
@@ -144,38 +141,34 @@ A biblioteca OpenALPR, ao receber uma imagem, realiza uma série de etapas para 
 
 \begin{enumerate}
 	\item \textbf{Detecção:} busca de regiões com possíveis placas na imagem;
-	\item \textbf{Binarização:} transformação em preto-e-branco as regiões de possíveis placas;
-	\item \textbf{Análise de caractéres:} busca por possíveis caractéres na imagem;
+	\item \textbf{Binarização:} transformação em preto-e-branco das regiões com possíveis placas;
+	\item \textbf{Análise de caracteres:} busca por possíveis caracteres na imagem;
 	\item \textbf{Análise de bordas:} busca pelas bordas da placa na região;
 	\item \textbf{Ajuste de distorção:} corrige a perspectiva da placa, para que seja "vista de frente";
-	\item \textbf{Segmentação:} separação dos caractéres da placa em imagens individuais;
-	\item \textbf{OCR:} análise da imagem de cada caractére para encontrar a letra ou número correspondente;
-	\item \textbf{Pós-processamento:} criação de um \textit{ranking} de placas detectadas, com base na confiança e espressões regulares (se solicitado).
+	\item \textbf{Segmentação:} separação dos caracteres da placa em imagens individuais;
+	\item \textbf{OCR:} análise da imagem de cada caractere para encontrar a letra ou número correspondente;
+	\item \textbf{Pós-processamento:} criação de um \textit{ranking} de placas detectadas, com base na confiança e expressões regulares (se solicitado).
 \end{enumerate}
 
 A resposta do OpenALPR é então capturada pela API e enviada ao contêiner solicitante.
 
-A adoção do Spring-Boot para o desenvolvimento da API deste módulo (bem como do módulo de \textit{Controle de acesso}) se justifica pelo fato do \textit{framework} abstrair uma série de configurações para o desenvolvimento e execução de aplicações Java, enquanto fornece ferramentas para a escrita de funções que utilizam comunicação via HTTP, persistência de dados e suíte de testes, permitindo que o desenvolvedor direcione maior esforço para a implementação de regras de negócio e fluxos semânticos na aplicação.
+A adoção do Spring Boot para o desenvolvimento da API deste módulo (bem como do módulo de \textit{Controle de acesso}) se justifica pelo fato do \textit{framework} abstrair uma série de configurações para o desenvolvimento e execução de aplicações Java, enquanto fornece ferramentas para a escrita de funções que utilizam comunicação via HTTP, persistência de dados e suíte de testes, permitindo que o desenvolvedor direcione maior esforço para a implementação de regras de negócio e fluxos semânticos na aplicação.
 
 \subsection{Banco de Dados (BD)}
 
-Este é o módulo responsável pela persistência dos dados usados pelo sistema, construído com uma imagem do MongoDB\footnote{Página oficial do MongoDB: \url{https://www.mongodb.com/}. Página para a imagem Docker do MongoDB: \url{https://hub.docker.com/_/mongo}}. Ele se encontra em um contêiner próprio para fins de controle de eventuais atualizações e uso de volume de disco, uma vez que a lógica da persistência dos dados se encontra no módulo descrito na sub-seção seguinte.
+Este é o módulo responsável pela persistência dos dados usados pelo sistema, construído com uma imagem do MongoDB\footnote{Página oficial do MongoDB: \url{https://www.mongodb.com/}. Página para a imagem Docker do MongoDB: \url{https://hub.docker.com/_/mongo}}. Ele se encontra em um contêiner próprio para fins de controle de eventuais atualizações e uso de volume de disco, uma vez que a lógica da persistência dos dados se encontra no módulo descrito na subseção seguinte.
 
-A adoção do MongoDB para a persistência de dados do sistema se deu pelo fato de apenas a entidade \textit{Veículo}, sem nenhuma relação com outra entidade dentro do escopo proposto.
+A adoção do MongoDB para a persistência de dados do sistema se deu pelo fato de haver apenas a entidade \textit{Veículo}, sem nenhuma relação com outra entidade dentro do escopo proposto.
 
 \subsection{Registro de veículos}
 
-Este é o módulo responsável pela lógica de persistência do sistema e acesso ao banco de dados.
+Este é o módulo responsável pela lógica de persistência do sistema e acesso ao banco de dados. Escrito em Python, este módulo implementas as operações CRUD\footnote{\textit{Create}, \textit{Read}, \textit{Update} e \textit{Delete}} para veículos e usuários do sistema — utilizando a biblioteca PyMongo\footnote{Documentação oficial do PyMongo: \url{https://docs.mongodb.com/drivers/pymongo/}} —, bem como implementa uma API — com a biblioteca Flask\footnote{Documentação oficial do Flask: \url{https://flask.palletsprojects.com/en/2.0.x/}} — para tratar as requisições de outros módulos.
 
-Escrito em Python, este módulo implementas as operações CRUD\footnote{\textit{Create}, \textit{Read}, \textit{Update} e \textit{Delete}} para veículos e usuários do sistema — utilizando a biblioteca PyMongo\footnote{Documentação oficial do PyMongo: \url{https://docs.mongodb.com/drivers/pymongo/}} —, enquanto implementa uma API — com a biblioteca Flask\footnote{Documentação oficial do Flask: \url{https://flask.palletsprojects.com/en/2.0.x/}}—, para tratar as requisições de outros módulos.
-
-O PyMongo é o \textit{driver} oficial do MongoDB para Python, fato que justifica sua escolha. Enquanto a adoção do Flask se justifica por ser um \textit{framework} de código-aberto e pela sua versatilidade e independência de outras bibliotecas, mantendo um núcleo simples, porém, extensível. 
+O PyMongo é o \textit{driver} oficial do MongoDB para Python, fato que justifica sua escolha. Por sua vez, a adoção do Flask se justifica por ser um \textit{framework} de código-aberto e pela sua versatilidade e independência de outras bibliotecas, mantendo um núcleo simples, porém, extensível. 
 
 \subsection{Controle de acesso}
 
-O módulo de Controle de acesso — escrito em Java com Spring-Boot — é onde a principal lógica de negócio do sistema está implementada. Ele é responsável por receber, via requisição REST, uma imagem de uma aplicação cliente qualquer, repassar esta imagem para o módulo ANPR para obter a placa do veículo e então requisitar ao módulo de Registros as informações de cadastro referentes à placa encontrada. De posse dessas informações, ele responde a aplicação cliente informando se o veículo da imagem tem ou não a autorização de acesso.
-
-O diagrama da Figura~\ref{fig:check4j} ilustra a troca de mensagens encabeçada pelo módulo de Controle de acesso.
+O módulo de Controle de acesso — escrito em Java com Spring Boot — é onde a principal lógica de negócio do sistema está implementada. Ele é responsável por receber, via requisição REST, uma imagem de uma aplicação cliente qualquer, repassar esta imagem para o módulo ANPR para obter a placa do veículo e então requisitar ao módulo de Registros as informações de cadastro referentes à placa encontrada. De posse dessas informações, ele responde a aplicação cliente informando se o veículo da imagem tem ou não a autorização de acesso. O diagrama da Figura~\ref{fig:check4j} ilustra a troca de mensagens encabeçada pelo módulo de Controle de acesso.
 
 \begin{figure}[ht]
 	\centering
@@ -188,15 +181,15 @@ O diagrama da Figura~\ref{fig:check4j} ilustra a troca de mensagens encabeçada 
 
 O módulo \textit{Web App}, escrito em TypeScript com o \textit{framework} Angular 9, interpreta dois papéis no sistema implementado: (i) \textit{front-end} para a manutenção das informações de cadastro de veículos, acessando o módulo Registro de veículos; e (ii) \textit{front-end} para prova de conceito do sistema, realizando requisições para o módulo de Controle de acesso.
 
-Além se poder ser executado em um contêiner Docker, este módulo pode ser compilado como um aplicativo móvel multiplataforma\footnote{Android ou iOS} através do \textit{framework} Apache Cordova\footnote{Documentação oficial do Apache Cordova: \url{https://cordova.apache.org/docs/en/latest/}}.
+Além de poder ser executado em um contêiner Docker, este módulo pode ser compilado como um aplicativo móvel multiplataforma\footnote{Android ou iOS} através do \textit{framework} Apache Cordova\footnote{Documentação oficial do Apache Cordova: \url{https://cordova.apache.org/docs/en/latest/}}.
 
-A escolha do Angular para o desenvolvimento deste modo se deu pelo fato de possibilitar a construção de aplicações multi-plataforma, de alto desempenho e possuir uma grande comunidade ativa na Internet.
+A escolha do Angular para o desenvolvimento deste modo se deu pelo fato de possibilitar a construção de aplicações multi-plataforma de alto desempenho e por possuir uma grande comunidade ativa na Internet.
 
 \section{Resultados}
 
 O principal objetivo deste trabalho foi implementar um sistema que utilize tecnologias de ANPR baseada em uma arquitetura MSA e que utilize ferramentas amplamente adotadas pela comunidade de desenvolvimento de \textit{software}. Os resultados obtidos são apresentados como se segue.
 
-A construção da infraestrutura interna e a definição das portas de comunicação entre contêineres é realizada, através do \textit{Docker Compose} e de seu arquivo de configuração, conforme apresentado anteriormente. Uma vez executado, os 5 contêineres que representam o sistema devem estar acessíveis conforme mostrado na Tabela \ref{table:container-table}.
+A construção da infraestrutura interna e a definição das portas de comunicação entre contêineres é realizada através do \textit{Docker Compose} e de seu arquivo de configuração, conforme apresentado anteriormente. Uma vez executado, os 5 contêineres que representam o sistema devem estar acessíveis conforme mostrado na Tabela \ref{table:container-table}.
 
 \begin{table}[h!]
 	\begin{center}
@@ -239,7 +232,7 @@ Com o objetivo de demonstrar o conceito do sistema, o módulo \textit{Web Apps} 
 	\label{fig:form03}
 \end{figure}
 
-Durante o desenvolvimento do módulo ANPR, foi utilizado o \textit{dataset} de \citen{MendesJunior2011} para treinamento do OpenALPR. Contudo, devido as características de posicionamento de câmera, iluminação e tipos de placa (placas de uma mesma região e pouca variação de caractéres), a rede neural de detecção não atingiu um resultado satisfatório quando exposta a imagens de um contexto diferente daquele treinado (Tabela \ref{table:opelalpr-results}).
+Durante o desenvolvimento do módulo ANPR, foi utilizado o \textit{dataset} de \citen{MendesJunior2011} para treinamento do OpenALPR. Contudo, devido às características de posicionamento de câmera, iluminação e tipos de placa (placas de uma mesma região e pouca variação de caracteres), a rede neural de detecção não atingiu um resultado satisfatório quando exposta à imagens de um contexto diferente daquele treinado (Tabela \ref{table:opelalpr-results}).
 
 \begin{table}
 	\centering
@@ -255,7 +248,7 @@ Durante o desenvolvimento do módulo ANPR, foi utilizado o \textit{dataset} de \
 	\label{table:opelalpr-results}
 \end{table}
 
-Uma vez que o treinamento e aperfeiçoamento dos resultados do módulo ANPR não faz parte do escopo deste trabalho, melhorias no OpenALPR ou, até mesmo, sua substituição (facilitada pela arquitetura do sistema) serão sugeridas com trabalhos futuros.
+Uma vez que o treinamento e aperfeiçoamento dos resultados do módulo ANPR não faz parte do escopo deste trabalho, melhorias no OpenALPR ou até mesmo sua substituição (facilitada pela arquitetura do sistema) serão sugeridas com trabalhos futuros.
 
 \section{Trabalhos Futuros}
 

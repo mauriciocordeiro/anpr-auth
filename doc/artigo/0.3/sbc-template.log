@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  4 DEC 2021 18:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.23)  7 DEC 2021 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -342,7 +342,7 @@ Package pdftex.def Info: anpr-steps.jpg  used on input line 95.
 File: anpr-auth.jpg Graphic file (type jpg)
 <use anpr-auth.jpg>
 Package pdftex.def Info: anpr-auth.jpg  used on input line 106.
-(pdftex.def)             Requested size: 341.43437pt x 217.98573pt.
+(pdftex.def)             Requested size: 426.79135pt x 272.47697pt.
 [3 <./rest.jpg>]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 117.
@@ -354,74 +354,71 @@ Underfull \hbox (badness 1412) in paragraph at lines 117--117
 $\OT1/pcr/m/n/10 https : / / docs . docker . com /
  []
 
-[4 <./anpr-steps.jpg>]
+
 Underfull \hbox (badness 6047) in paragraph at lines 124--125
 []\OT1/ptm/m/n/12 Executar o comando \OT1/pcr/m/n/12 docker-compose up \OT1/ptm
 /m/n/12 para inicializar todos os
  []
 
+[4 <./anpr-steps.jpg>]
 <anpr4j-data.jpg, id=26, 385.44pt x 252.945pt>
 File: anpr4j-data.jpg Graphic file (type jpg)
 <use anpr4j-data.jpg>
-Package pdftex.def Info: anpr4j-data.jpg  used on input line 138.
-(pdftex.def)             Requested size: 256.07741pt x 168.04807pt.
-[5 <./anpr-auth.jpg>] [6 <./anpr4j-data.jpg>]
+Package pdftex.def Info: anpr4j-data.jpg  used on input line 135.
+(pdftex.def)             Requested size: 341.43437pt x 224.06667pt.
+ [5 <./anpr-auth.jpg>] [6 <./anpr4j-data.jpg>]
 <check4j.jpg, id=33, 744.7825pt x 292.09125pt>
 File: check4j.jpg Graphic file (type jpg)
 <use check4j.jpg>
-Package pdftex.def Info: check4j.jpg  used on input line 182.
+Package pdftex.def Info: check4j.jpg  used on input line 175.
 (pdftex.def)             Requested size: 426.79135pt x 167.38512pt.
 
-Underfull \hbox (badness 1742) in paragraph at lines 191--191
+Underfull \hbox (badness 1742) in paragraph at lines 184--184
 [][]\OT1/ptm/m/n/10 Documenta[][]ao oficial do Apache Cordova: $\OT1/pcr/m/n/10
  https : / / cordova . apache . org / docs / en /
  []
 
 [7 <./check4j.jpg>]
-Underfull \hbox (badness 1552) in paragraph at lines 199--200
-\OT1/ptm/m/n/12 entre cont[]eineres []e realizada, atrav[]es do \OT1/ptm/m/it/1
-2 Docker Compose \OT1/ptm/m/n/12 e de seu arquivo de
+Underfull \hbox (badness 1939) in paragraph at lines 192--193
+\OT1/ptm/m/n/12 entre cont[]eineres []e realizada atrav[]es do \OT1/ptm/m/it/12
+ Docker Compose \OT1/ptm/m/n/12 e de seu arquivo de
  []
 
 <form01.png, id=38, 1038.88126pt x 425.59pt>
 File: form01.png Graphic file (type png)
 <use form01.png>
-Package pdftex.def Info: form01.png  used on input line 223.
+Package pdftex.def Info: form01.png  used on input line 216.
 (pdftex.def)             Requested size: 426.79135pt x 174.8372pt.
 <form02.png, id=40, 1038.88126pt x 425.59pt>
 File: form02.png Graphic file (type png)
 <use form02.png>
-Package pdftex.def Info: form02.png  used on input line 230.
+Package pdftex.def Info: form02.png  used on input line 223.
 (pdftex.def)             Requested size: 426.79135pt x 174.8372pt.
 <form03.png, id=41, 1038.88126pt x 425.59pt>
 File: form03.png Graphic file (type png)
 <use form03.png>
-Package pdftex.def Info: form03.png  used on input line 237.
+Package pdftex.def Info: form03.png  used on input line 230.
 (pdftex.def)             Requested size: 426.79135pt x 174.8372pt.
 
-Underfull \hbox (badness 1406) in paragraph at lines 242--243
+Underfull \hbox (badness 1406) in paragraph at lines 235--236
 []\OT1/ptm/m/n/12 Durante o desenvolvimento do m[]odulo ANPR, foi utilizado o \
 OT1/ptm/m/it/12 dataset \OT1/ptm/m/n/12 de
  []
 
-[8 <./form01.png>]
 LaTeX Font Info:    Trying to load font information for OML+ptm on input line 2
-48.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
+41.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/b/n' in size <12> not available
-(Font)              Font shape `OML/cmm/b/it' tried instead on input line 248.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9 <./form02.png> <./form03.png>]
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 241.
+ [8 <./form01.png>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-65.
+58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) (./sbc-template.bbl
+) [9 <./form02.png> <./form03.png>] (./sbc-template.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 29--32
 []\OT1/ptm/m/n/12 Hill, M. (2014).  \OT1/ptm/m/it/12 OpenALPR Design\OT1/ptm/m/
 n/12 .  OpenALPR,
@@ -437,7 +434,7 @@ iredo, E. (2018).
 Here is how much of TeX's memory you used:
  4905 strings out of 483183
  74186 string characters out of 5966291
- 322680 words of memory out of 5000000
+ 323680 words of memory out of 5000000
  19824 multiletter control sequences out of 15000+600000
  558479 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -450,7 +447,7 @@ ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (11 pages, 721209 bytes).
+Output written on sbc-template.pdf (11 pages, 720828 bytes).
 PDF statistics:
  86 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
