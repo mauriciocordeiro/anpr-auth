@@ -19,20 +19,6 @@ services:
       - net
     ports:
       - 8080:8080
-  #cateye-alpr:
-    #container_name: cateye
-    #build: ./cateye-alpr
-    #networks:
-      #- net
-    #ports:
-      #- 5000:5000
-  vrpdr:
-    container_name: vrpdr
-    build: ./vrpdr
-    networks:
-      - net
-    ports:
-      - 5000:5000
   vehiclespy:
     image: mauriciocordeiro/vehiclespy:v1
     container_name: vehiclespy
